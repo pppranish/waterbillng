@@ -1,0 +1,135 @@
+<div class="container">
+    <header>
+        <h1>Create Workflow User</h1>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Create New Workflow User</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="salutation">Salutation</label>
+                        <select id="salutation" name="salutation">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">Choose...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="designation">Designation</label>
+                        <select id="designation" name="designation">
+                            <option value="">--Select Designation--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="division">Division</label>
+                        <select id="division" name="division">
+                            <option value="">--Select Division--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNo">Contact No.</label>
+                        <input type="text" id="contactNo" name="contactNo">
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Choose Role</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="role" value="super-admin"> super-admin</label>
+                        <label><input type="checkbox" name="role" value="applicant"> applicant</label>
+                        <label><input type="checkbox" name="role" value="consumer"> consumer</label>
+                        <label><input type="checkbox" name="role" value="w-co"> w-co</label>
+                        <label><input type="checkbox" name="role" value="w-cc-desk1"> w-cc-desk1</label>
+                        <label><input type="checkbox" name="role" value="w-cc-desk2"> w-cc-desk2</label>
+                        <label><input type="checkbox" name="role" value="w-de-rev"> w-de-rev</label>
+                        <label><input type="checkbox" name="role" value="w-ae-mtc"> w-ae-mtc</label>
+                        <label><input type="checkbox" name="role" value="w-ldc-rev"> w-ldc-rev</label>
+                        <label><input type="checkbox" name="role" value="s-co"> s-co</label>
+                        <label><input type="checkbox" name="role" value="s-de-rev"> s-de-rev</label>
+                        <label><input type="checkbox" name="role" value="w-je-rev"> w-je-rev</label>
+                        <label><input type="checkbox" name="role" value="bank"> bank</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose Permission</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="permission" value="can-access-water"> can-access-water</label>
+                        <label><input type="checkbox" name="permission" value="can-access-sewerage"> can-access-sewerage</label>
+                        <label><input type="checkbox" name="permission" value="can-create-workflow-user"> can-create-workflow-user</label>
+                        <label><input type="checkbox" name="permission" value="can-process-application"> can-process-application</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Work flow: Water new connection</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="workflow-water" value="application-submission"> Application Submission</label>
+                        <label><input type="checkbox" name="workflow-water" value="application-verification"> Application verification</label>
+                        <label><input type="checkbox" name="workflow-water" value="upload-field-report"> Upload field report and corresponding form</label>
+                        <label><input type="checkbox" name="workflow-water" value="review-feasibility-report"> Review and provide feasibility report</label>
+                        <label><input type="checkbox" name="workflow-water" value="approve"> Approve</label>
+                        <label><input type="checkbox" name="workflow-water" value="send-intimation-letter"> Sent intimation letter to consumer</label>
+                        <label><input type="checkbox" name="workflow-water" value="pay-connection-fee"> Pay connection fee and upload photos of pipeline</label>
+                        <label><input type="checkbox" name="workflow-water" value="cross-check-pipeline-photos"> Cross check pipe line photos and connection fee payment status</label>
+                        <label><input type="checkbox" name="workflow-water" value="final-review-ae"> Final review by AE Revenue</label>
+                        <label><input type="checkbox" name="workflow-water" value="final-review-de"> Final review by DE Revenue and issue permission order</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Work flow: Sewerage new connection</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="workflow-sewerage" value="application-submission"> Application Submission</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="application-verification"> Application verification</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="make-feasibility-report"> Make feasibility report</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="submitted-for-approval"> Submitted for approval</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="approved-for-preparation"> Approved for preparing connection order</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="prepare-permission-order"> Prepare permission order</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="sign-permission-order"> Sign the permission order</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="confirm-for-billing"> Confirm for consumer number and billing date</label>
+                        <label><input type="checkbox" name="workflow-sewerage" value="issue-permission-order"> Issue permission order to the customer</label>
+                    </div>
+                </fieldset>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Create User</button>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</div>
+

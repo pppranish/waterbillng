@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Process Monthly Water Consumption <i class="calendar-icon"></i></h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-full">
+          <h4>For Months <fa-icon [icon]="faCalander"></fa-icon></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>From</p>
+          <label for="start-month">Choose Start Month:&emsp;</label>
+          <select id="start-month" [(ngModel)]="selectedStartMonth">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <p>To</p>
+          <label for="start-year">Choose Start Year:&emsp;</label>
+          <select id="start-year" [(ngModel)]="selectedStartYear">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="end-month">Choose End Month:&emsp;</label>
+          <select id="end-month" [(ngModel)]="selectedEndMonth">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="end-year">Choose End Year:&emsp;</label>
+          <select id="end-year" [(ngModel)]="selectedEndYear">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+      </div>
+      <button (click)="processConsumption()">Process Consumption</button>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+.content {
+    padding: 20px;
+  }
+ 
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+  
+.styled-table thead th {
+    background-color: #113c60;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+}
+  
+.styled-table tbody td {
+    padding: 12px;
+}
+  
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+  
+.styled-table tbody tr:hover {
+    background-color: #e0e0e0;
+}

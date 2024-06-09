@@ -1,0 +1,86 @@
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-body .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .card-body .col {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .card-body .col:last-child {
+    margin-right: 0;
+  }
+  
+  .card-body .col-full {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .calendar-icon {
+   /* Replace with actual path to calendar icon */
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .styled-table th, .styled-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .styled-table th {
+    background-color: #f2f2f2;
+  }
+  
+
+  button {
+    margin-top: 10px;
+    background-color: #add8e6; /* Light blue color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #87ceeb; /* Slightly darker light blue for hover effect */
+  }
+  p {
+    font-weight: bold;
+  }

@@ -1,0 +1,33 @@
+<div class="dashboard">
+  <h2>Water Supply Connections</h2>
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name">
+  </div>
+  <div class="connection-list">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Consumer No.</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Type</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let connection of filteredConnections">
+          <td>{{ connection.consumerNo }}</td>
+          <td>{{ connection.name }}</td>
+          <td>{{ connection.address }}</td>
+          <td>{{ connection.type }}</td>
+          <td>{{ connection.email }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">Number of entries: {{ connectionCount }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+
+
+
+  
+<body>
+  <body>
+    <div class="login-page">
+     <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3 style="font-size: 2rem;">Sign up </h3>
+     
+          </div>
+        </div >
+        <form  [formGroup]="signupForm" (ngSubmit)="signUp()"  class="login-form" autocomplete="off">
+          <div class="card-body">
+            <label style="float: left;" for="name">Name:</label>
+            <input type="text" formControlName="name" name="name" placeholder="Enter name" style="width: 100%;">
+            <small *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched || clicked)">
+              <div *ngIf="signupForm.controls['name'].errors?.['required']" class="text-danger">Name Required</div>
+              <div *ngIf="signupForm.controls['name'].errors?.['pattern']" class="text-danger">Name Should Be Valid</div>
+            </small>
+          </div>
+          <div class="card-body">
+            <label style="float: left;" for="email">Email:</label>
+            <input type="text" formControlName="email" name="email" placeholder="Enter email" style="width: 100%;">
+            <small *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched || clicked)">
+              <div *ngIf="signupForm.controls['email'].errors?.['required']" class="text-danger">Email Required</div>
+              <div *ngIf="signupForm.controls['email'].errors?.['pattern']" class="text-danger">Email Should Be Valid</div>
+            </small>
+          </div>
+          <div class="card-body">
+            <label style="float: left;" for="mobilenumber">Mobile no:</label>
+            <input type="text" formControlName="mobilenumber" name="mobilenumber" placeholder="Enter mobile no." style="width: 100%;">
+            <small *ngIf="signupForm.controls['mobilenumber'].invalid && (signupForm.controls['mobilenumber'].dirty || signupForm.controls['mobilenumber'].touched || clicked)">
+              <div *ngIf="signupForm.controls['mobilenumber'].errors?.['required']" class="text-danger">Mobile no. Required</div>
+              <div *ngIf="signupForm.controls['mobilenumber'].errors?.['pattern']" class="text-danger">Mobile no. Should Be Valid</div>
+            </small>
+          </div>
+
+          <div class="card-body">
+            <label style="float: left;" for="password">Password:</label>
+            <input type="password" formControlName="password" name="password" placeholder="Enter password" style="width: 100%;">
+            <small *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched || clicked)">
+              <div *ngIf="signupForm.controls['password'].errors?.['required']" class="text-danger">Password Required</div>
+              <div *ngIf="signupForm.controls['password'].errors?.['minlength']" class="text-danger">Password Should Be at Least 8 Characters</div>
+            </small>
+          </div>
+       
+        
+          <button (click)="onClickBeforeSubmit()">login</button>
+          <p class="message">Already Registered? <a routerLink="/login">Login</a></p>
+        </form>
+     </div>
+    </div>
+</body>
+</body>

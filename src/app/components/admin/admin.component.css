@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+}
+
+.side-nav {
+  background-color: purple;
+  background-image: linear-gradient(181deg, #000000, #982b62)!important;
+  color: #fff;
+  box-shadow: 5px 5px 5px #939393;
+}
+
+.main {
+  padding-top: 70px;
+  flex: 1;
+}

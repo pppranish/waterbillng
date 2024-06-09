@@ -1,0 +1,35 @@
+
+<body>
+  <body>
+    <div class="login-page">
+     <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3 style="font-size: 2rem;">Log In</h3>
+     
+          </div>
+        </div>
+        <form  [formGroup]="loginForm" (ngSubmit)="login()"  class="login-form" autocomplete="off">
+          <div>
+          <input style="float: left;" type="text" formControlName="email" placeholder="email"/>
+          <small *ngIf="loginForm.controls['email'].hasError('required') && (clicked|| loginForm.controls['email'].touched)" class="text-danger">
+            Email Required
+          </small>
+          <small *ngIf="loginForm.controls['email'].hasError('email') && (clicked || loginForm.controls['email'].touched)" class="text-danger">
+            Email Should Be Valid
+          </small>
+          </div>
+          <div>
+          <input style="float: left;" type="password" placeholder="password" formControlName="password"/>
+          <small *ngIf="loginForm.controls['password'].hasError('required') && clicked " class="text-danger">
+            Password Required
+    
+          </small>
+          </div>
+          <button (click)="onClickBeforeSubmit()">login</button>
+          <p class="message">Not registered? <a routerLink="/signup">Signup</a></p>
+        </form>
+     </div>
+    </div>
+</body>
+</body>

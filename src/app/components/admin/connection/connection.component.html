@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Request for new connection</h2>
+    <form [formGroup]="connectionForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label><br>
+        <input id="name" formControlName="name" placeholder="Enter your name"><br><br>
+      </div>
+      <div>
+        <label for="email">Email:</label><br>
+        <input id="email" formControlName="email" placeholder="Enter your email address"><br><br>
+      </div>
+      <div>
+        <label for="price">Price:</label><br>
+        <input id="price" formControlName="price" placeholder="Price" readonly>
+      </div>
+      <div>
+        <label for="address">Address: </label><br>
+        <textarea id="address" formControlName="address" placeholder="Enter your address" rows="4" cols="50"></textarea><br><br>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  

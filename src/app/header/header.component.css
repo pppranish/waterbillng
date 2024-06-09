@@ -1,0 +1,51 @@
+
+  .flex{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  #b-accessibility{
+    color: #505050;
+    height: 100%;
+    width: 100%;
+  }
+  #b-header{
+    height: 110px;
+    overflow: hidden;
+  }
+  .b-acc-goi {
+    border-right: 1px solid #999;
+    font-size: 12px;
+  }
+  .b-ministryname{
+    display: flex;
+    
+  }
+ 
+ 
+  
+  .b-acc-ministry {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 12px;
+    color: #505050;
+  }
+  
+  .b-acc-goi {
+    text-align: right;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+    /* Adjust margin as needed */
+    padding-right: 0.5rem;
+    color: #505050;
+  
+  }
+  
+
+ 
+  

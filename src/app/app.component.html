@@ -1,0 +1,10 @@
+<div >
+    <app-header *ngIf="shouldShowHeader"></app-header>
+    <app-navbar *ngIf="shouldShowNavbar"></app-navbar>
+   
+    <router-outlet></router-outlet>
+
+    <app-footer *ngIf="shouldShowHeader"></app-footer>
+
+
+</div>

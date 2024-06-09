@@ -1,0 +1,32 @@
+.footer{
+    background-image: linear-gradient(90deg, #000000, #982b62)!important;
+    padding-top : 15px;
+    padding-right : 15px;
+    padding-bottom : 15px;
+    padding-left  : 0px;
+}
+li{
+    list-style: none;
+    
+}
+
+
+
+a{
+    text-decoration: none;
+}
+
+ .imp-link{
+    text-decoration: none;
+    color: #f8f9fa;
+    font-weight: bold;
+
+   
+} 
+
+.imp-link:hover{
+    color: gray;
+    text-decoration: underline;
+    font-weight: bold;
+    
+}

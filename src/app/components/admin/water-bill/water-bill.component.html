@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Print Water Bill <i class="fas fa-calendar-alt"></i></h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-full">
+          <h4>For Months <i class="fas fa-calendar-alt"></i></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="consumer-no">Consumer No.:&emsp;</label>
+          <input id="consumer-no" type="text" [(ngModel)]="consumerNo">
+        </div>
+        <div class="col">
+          <label for="zone">Choose Zone:&emsp;</label>
+          <select id="zone" [(ngModel)]="selectedZone">
+            <option *ngFor="let zone of zones" [value]="zone">{{ zone }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="evaluation-type">Type of Evaluation:&emsp;</label>
+          <select id="evaluation-type" [(ngModel)]="selectedEvaluationType">
+            <option *ngFor="let evaluationType of evaluationTypes" [value]="evaluationType">{{ evaluationType }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        
+        <div class="col">
+          <label for="start-month-bill">Choose Start Month:&emsp;</label>
+          <select id="start-month-bill" [(ngModel)]="selectedStartMonthBill">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="start-year-bill">Choose Start Year:&emsp;</label>
+          <select id="start-year-bill" [(ngModel)]="selectedStartYearBill">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="end-month-bill">Choose End Month:&emsp;&nbsp;</label>
+          <select id="end-month-bill" [(ngModel)]="selectedEndMonthBill">
+            <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="end-year-bill">Choose End Year:&emsp;&nbsp;</label>
+          <select id="end-year-bill" [(ngModel)]="selectedEndYearBill">
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-light-blue" (click)="printBill()">Print Bill</button>
+    </div>
+  </div>
+  
+  <!-- Hidden Printable Bill Section -->
+  <div id="print-section" style="display:none;">
+    <h2>Water Bill</h2>
+    <p>Zone: {{ selectedZone }}</p>
+    <p>Type of Evaluation: {{ selectedEvaluationType }}</p>
+    <p>Consumer No: {{ consumerNo }}</p>
+    <p>Period: {{ selectedStartMonthBill }} {{ selectedStartYearBill }} - {{ selectedEndMonthBill }} {{ selectedEndYearBill }}</p>
+   
+  </div>
+  

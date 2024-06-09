@@ -1,0 +1,31 @@
+<div class="content">
+    <h2>Payment history</h2>
+    <div class="pay-list">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Name</th>
+                    <th>Payment date</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let connection of connections">
+                    <td>{{ connection.sNo }}</td>
+                    <td>{{ connection.name }}</td>
+                    <td>{{ connection.payDate }}</td>
+                    <td>{{ connection.amount }}</td>
+                    <td>{{ connection.type}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Number of entries: {{ connectionCount }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+

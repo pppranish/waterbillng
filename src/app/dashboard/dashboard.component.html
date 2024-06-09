@@ -1,0 +1,19 @@
+
+<div class="my-5" id="b-homedb">
+    <div class="container">
+      <div class="row text-center">
+        <h2 class="col-md-12">Figures tell the story</h2>
+        <div class="col-lg-4 p-4" *ngFor="let card of cards">
+          <div class="bg-light py-4 b-dbcard">
+          
+            <h3 style="font-size: 16px;"><strong>{{ card.title }}</strong></h3>
+            <div class="text-left">
+              <p class="px-5">Till date <span class="float-right">{{ card.totalTillDate }}</span></p>
+              <p class="px-5">Current year <span class="float-right">{{ card.currentYear }}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

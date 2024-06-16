@@ -14,7 +14,7 @@ export class LoginComponent {
   isLoggedIn = false;
   username: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService , private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -33,6 +33,7 @@ export class LoginComponent {
           this.isLoggedIn = true;
           this.username = response.username;
           console.log('Login successful:', response);
+          this.router.navigate(['/admin']);
         } else {
           this.isLoggedIn = false;
           console.error('Login failed:', response.message);

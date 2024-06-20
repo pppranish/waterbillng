@@ -41,10 +41,12 @@ const routes: Routes = [
     { path: 'error-logs', component: ErrorLogsComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
   ]},
-  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/dashboard' },
 
-  {path : 'applicant' , component : ApplicantComponent},
+
+  {path : 'applicant' ,
+    canActivate: [AdminGuard],
+     component : ApplicantComponent
+  },
   // {
   //   path: 'consumer',
   //   canActivate: [AdminGuard],

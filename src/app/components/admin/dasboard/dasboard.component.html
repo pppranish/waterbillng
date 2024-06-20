@@ -1,4 +1,4 @@
-<div class="dashboard">
+<!-- <div class="dashboard">
   <h2>Water Supply Connections</h2>
   <div class="search-bar">
     <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name">
@@ -29,5 +29,123 @@
         </tr>
       </tfoot>
     </table>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="fas fa-rupee-sign text-success"></i></span>
+          <div class="info-box-content">
+              <span class="info-box-text">Total Revenue (Water)</span>
+              <span class="info-box-number"><small><i class="fas fa-rupee-sign text-secondary"></i></small>
+                  <small id="total_revenue_water">{{ totalRevenueWater }}</small>
+              </span>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fas fa-wallet"></i></span>
+          <div class="info-box-content">
+              <span class="info-box-text">Total Revenue (Sewerage)</span>
+              <span class="info-box-number"><small><i class="fas fa-rupee-sign text-secondary"></i></small>
+                  <small id="total_revenue_sewerage">{{ totalRevenueSewerage }}</small>
+              </span>
+          </div>
+      </div>
+  </div>
+  <div class="clearfix visible-sm-block"></div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="fas fa-hand-holding-water"></i></span>
+          <div class="info-box-content">
+              <span class="info-box-text">Active Connection (Water)</span>
+              <span class="info-box-number">{{ totalActiveConnectionWater }}</span>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="fas fa-calendar-week"></i></span>
+          <div class="info-box-content">
+              <span class="info-box-text">Active Connection (Sewerage)</span>
+              <span class="info-box-number">{{ totalActiveConnectionSewerage }}</span>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+      <div class="card">
+          <div class="card-header">
+              <h5 class="m-0 font-weight-bold"><i class="fas fa-rupee-sign text-success"></i> Revenue</h5>
+          </div>
+          <div class="card-body">
+              <small id="passwordHelpInline" class="text-muted">* Monthly wise total revenue collected.</small>
+              <p class="card-text">
+                  <canvas id="myChart" width="400" height="400"></canvas>
+              </p>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-6">
+      <div class="card">
+          <div class="card-header">
+              <h5 class="m-0"><i class="fas fa-chart-area text-warning"></i> Zone Connection</h5>
+          </div>
+          <small id="passwordHelpInline" class="text-muted">* Zone wise total connection.</small>
+          <p class="card-text">
+              <canvas id="chart-area" width="400" height="400"></canvas>
+          </p>
+      </div>
+  </div>
+  <div class="col-lg-6">
+      <div class="card">
+          <div class="card-header">
+              <h5 class="m-0 font-weight-bold"><i class="fas fa-file-word text-info"></i> District's Connection</h5>
+          </div>
+          <div class="card-body">
+              <small id="passwordHelpInline" class="text-muted">* Important data for data analysis.</small>
+              <p class="card-text">
+                  <canvas id="line-chart" width="400" height="200"></canvas>
+              </p>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-6">
+      <div class="card">
+          <div class="card-header">
+              <h5 class="m-0"><i class="fas fa-chart-area text-warning"></i> Summary Report</h5>
+          </div>
+          <small id="passwordHelpInline" class="text-muted">* Zone wise total connection.</small>
+          <p class="card-text">
+              <div class="col-md-12">
+                  <div class="info-box bg-yellow">
+                      <span class="info-box-icon"><i class="fas fa-hourglass-half"></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Pending Connection</span>
+                          <span class="info-box-number">52</span>
+                          <div class="progress">
+                              <div class="progress-bar" style="width: 50%"></div>
+                          </div>
+                          <span class="progress-description">50% pending in 30 Days</span>
+                      </div>
+                  </div>
+                  <div class="info-box bg-green">
+                      <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Mentions</span>
+                          <span class="info-box-number">92,050</span>
+                          <div class="progress">
+                              <div class="progress-bar" style="width: 20%"></div>
+                          </div>
+                          <span class="progress-description">20% Increase in 30 Days</span>
+                      </div>
+                  </div>
+              </div>
+          
+      </div>
   </div>
 </div>

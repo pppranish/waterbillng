@@ -29,6 +29,14 @@
       "password": "12345678",
       "role": "Applicant",
       "id": 4
+    },
+    {
+      "name": "pranish pradhan",
+      "email": "Pranish_202000069@smit.smu.com",
+      "mobilenumber": "7318718647",
+      "password": "123456789",
+      "role": "Applicant",
+      "id": 5
     }
   ]
 }

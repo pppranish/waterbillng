@@ -1,0 +1,35 @@
+{
+    "payment_received_details": [
+      {
+        "payment_received_for": "Sewerage Connection",
+        "amount_received_for": "Water Bill",
+        "amount_received": 100
+      },
+      {
+        "payment_received_for": "Water Supply",
+        "amount_received_for": "Sewerage Bill",
+        "amount_received": 150
+      },
+      {
+        "payment_received_for": "Sewerage Connection",
+        "amount_received_for": "CAFNCS",
+        "amount_received": 200
+      },
+      {
+        "payment_received_for": "Water Supply",
+        "amount_received_for": "NCF",
+        "amount_received": 300
+      },
+      {
+        "payment_received_for": "Sewerage Connection",
+        "amount_received_for": "SCSPCP",
+        "amount_received": 250
+      },
+      {
+        "payment_received_for": "Water Supply",
+        "amount_received_for": "Advance Payment",
+        "amount_received": 400
+      }
+    ]
+  }
+  

@@ -35,6 +35,12 @@ import { AuthService } from './services/auth.service';
 import { ConsumptionComponent } from './components/admin/consumption/consumption.component';
 
 import { FeatureModule } from './feature/feature.module';
+import { ApplicantComponent } from './applicant/applicant.component';
+import { ConsumerDetailsComponent } from './applicant/consumer-details/consumer-details.component';
+import { WaterConnectionComponent } from './applicant/water-connection/water-connection.component';
+import { FileUploadsComponent } from './applicant/file-uploads/file-uploads.component';
+import { PreviewComponent } from './applicant/preview/preview.component';
+import { CompleteComponent } from './applicant/complete/complete.component';
 
 
 @NgModule({
@@ -64,6 +70,12 @@ import { FeatureModule } from './feature/feature.module';
         UserManagmentComponent,
         ErrorLogsComponent,
         ConsumptionComponent,
+        ApplicantComponent,
+        ConsumerDetailsComponent,
+        WaterConnectionComponent,
+        FileUploadsComponent,
+        PreviewComponent,
+        CompleteComponent,
       
      
   ],

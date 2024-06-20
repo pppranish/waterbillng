@@ -1,0 +1,47 @@
+.tab-content {
+    padding-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.form-group.col-md-4,
+.form-group.col-md-6,
+.form-group.col-md-3,
+.form-group.col-md-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form-group .input-group-prepend .input-group-text {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-prepend {
+    margin-right: 10px;
+}
+
+.form-check {
+    margin-right: 10px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+.next-step {
+    margin-top: 20px;
+}

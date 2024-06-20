@@ -1,0 +1,163 @@
+
+
+<div class="tab-pane" role="tabpanel" id="step2">
+    <h4>Step 2 (Water Connection Details)</h4>
+
+    <form #step2Form="ngForm" (ngSubmit)="submitForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="has_sewerage_connection">Having Sewerage Connection</label>
+                <select id="has_sewerage_connection" name="has_sewerage_connection" class="form-control" required
+                    [(ngModel)]="formData.hasSewerageConnection">
+                    <option value="">Choose...</option>
+                    <option value='1'>Yes</option>
+                    <option value='0'>No</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6" *ngIf="formData.hasSewerageConnection == '1'">
+                <label for="sewerage_connection_number">Sewerage Connection Number</label>
+                <input class="form-control" type="text" name="sewerage_connection_number"
+                    id="sewerage_connection_number" placeholder="Sewerage Connection Number"
+                    [(ngModel)]="formData.sewerageConnectionNumber">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="no_of_water_connections">No. of water connections in the same premises</label>
+                        <!-- You can add dynamic rows here if required -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="other_water_connection">Water Connection other than PHED W/S Distribution line</label>
+                <select id="other_water_connection" name="other_water_connection" class="form-control"
+                    [(ngModel)]="formData.otherWaterConnection">
+                    <option value="">Choose...</option>
+                    <option value='1'>Yes</option>
+                    <option value='0'>No</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6" *ngIf="formData.otherWaterConnection == '1'">
+                <label for="other_water_connection_form">Give details from where other Connection is taken</label>
+                <input type="text" id="other_water_connection_form" name="other_water_connection_form"
+                    class="form-control" [(ngModel)]="formData.otherWaterConnectionForm">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="water_required_for">Water is required for</label>
+                <select name="water_required_for" id="water_required_for" class="form-control" required
+                    [(ngModel)]="formData.waterRequiredFor">
+                    <option value="">Choose...</option>
+                    <option value='DOMESTIC'>Domestic</option>
+                    <option value='COMMERCIAL'>Commercial</option>
+                    <option value='contractor labour estab'>Contractor labour estab</option>
+                    <option value='bulk supply'>Bulk supply</option>
+                    <option value='public hydrant'>Public hydrant</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="water_consumer_category">Category Type</label>
+                <select name="water_consumer_category" id="water_consumer_category" class="form-control" required
+                    [(ngModel)]="formData.waterConsumerCategory">
+                    <option value="">Choose...</option>
+                    <option value='state government'>State Government</option>
+                    <option value='central government'>Central Government</option>
+                    <option value='private & other'>Private & Other</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="type_of_premises">Type of premises</label>
+                <select name="type_of_premises" id="type_of_premises" class="form-control" required
+                    [(ngModel)]="formData.typeOfPremises">
+                    <option value="">Choose...</option>
+                    <option value='residence'>Residence</option>
+                    <option value='shop'>Shop</option>
+                    <option value='hotel'>Hotel</option>
+                    <option value='office'>Office</option>
+                    <option value='quarter'>Quarter</option>
+                    <option value='institution'>Institution</option>
+                    <option value='commercial complex'>Commercial complex</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="premises_detail">Details of premises</label>
+                <select name="premises_detail" id="premises_detail" class="form-control" required
+                    [(ngModel)]="formData.premisesDetail">
+                    <option value="">Choose...</option>
+                    <option value='rcc'>RCC</option>
+                    <option value='non rcc'>Non RCC</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="no_of_storeys">No. of Storey</label>
+                <input type="number" class="form-control" name="no_of_storeys" id="no_of_storeys"
+                    [(ngModel)]="formData.noOfStoreys" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="connection_period">Period of connection</label>
+                <select name="connection_period" id="connection_period" class="form-control" required
+                    [(ngModel)]="formData.connectionPeriod">
+                    <option value="">Choose...</option>
+                    <option value='permanent'>Permanent</option>
+                    <option value='temporary'>Temporary</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4" *ngIf="formData.connectionPeriod == 'temporary'">
+                <label for="temp_connection_duration">If temporary, duration in months</label>
+                <input type="number" class="form-control" name="temp_connection_duration" id="temp_connection_duration"
+                    [(ngModel)]="formData.tempConnectionDuration">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="quantity_of_water">Per day requirement (Kilo Litre)</label>
+                <input type="number" class="form-control" name="quantity_of_water" id="quantity_of_water"
+                    [(ngModel)]="formData.quantityOfWater" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="no_of_taps">No. of taps (Premises)</label>
+                <input type="number" class="form-control" name="no_of_taps" id="no_of_taps"
+                    [(ngModel)]="formData.noOfTaps" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="no_of_rooms">No. of rooms (Premises)</label>
+                <input type="number" class="form-control" name="no_of_rooms" id="no_of_rooms"
+                    [(ngModel)]="formData.noOfRooms" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="no_of_toilets">No. of toilets (Premises)</label>
+                <input type="number" class="form-control" name="no_of_toilets" id="no_of_toilets"
+                    [(ngModel)]="formData.noOfToilets" required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="no_of_users">No. of users (Premises)</label>
+                <input type="number" class="form-control" name="no_of_users" id="no_of_users"
+                    [(ngModel)]="formData.noOfUsers" required>
+            </div>
+        </div>
+
+        <ul class="float-right">
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-outline-primary prev-step">Previous</button>
+            </li>
+            <li class="list-inline-item">
+                <button type="submit" id="step2_button" class="btn btn-primary next-step">Save and Continue</button>
+            </li>
+        </ul>
+    </form>
+</div>

@@ -15,8 +15,9 @@ import { MessageInboxComponent } from './components/admin/message-inbox/message-
 import { ErrorLogsComponent } from './components/admin/error-logs/error-logs.component';
 import { UserManagmentComponent } from './components/admin/user-managment/user-managment.component';
 import { ConsumptionComponent } from './components/admin/consumption/consumption.component';
-
-
+import { AdminGuard } from './auth/admin.guard';
+import {inject} from '@angular/core';
+import { ApplicantComponent } from './applicant/applicant.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,7 +26,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
   { path: 'signup', component: SignupComponent },
-  { path: 'admin' , component: AdminComponent, children:[
+  {  
+    path: 'admin',
+    canActivate: [AdminGuard],
+    component: AdminComponent, children:[
     {path: 'dashboard', component: DasboardComponent},
     { path: 'connection', component: ConnectionComponent },
     {path:'consumption' , component: ConsumptionComponent},
@@ -37,9 +41,18 @@ const routes: Routes = [
     { path: 'error-logs', component: ErrorLogsComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
   ]},
-  
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashboard' }
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/dashboard' },
+
+  {path : 'applicant' , component : ApplicantComponent},
+  // {
+  //   path: 'consumer',
+  //   canActivate: [AdminGuard],
+  //   component: ConsumerComponent,
+  //   children: [
+  //     // your consumer child routes here
+  //   ]
+  // },
 ]
 
 @NgModule({

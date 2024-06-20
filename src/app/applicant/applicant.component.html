@@ -1,0 +1,36 @@
+<!-- tabs.component.html -->
+<div class="container py-3 my-3 border rounded shadow-sm">
+    <div class="row">
+      <section class="col-12">
+        <ul class="nav nav-tabs flex-nowrap" role="tablist">
+          <li role="presentation" class="nav-item">
+            <button (click)="goToStep(1)" [class.active]="currentStep === 1" class="nav-link">
+              <i class="fas fa-user-edit text-primary"></i>
+            </button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button (click)="goToStep(2)" [class.active]="currentStep === 2" class="nav-link">
+              <i class="fas fa-faucet text-success"></i>
+            </button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button (click)="goToStep(3)" [class.active]="currentStep === 3" class="nav-link">
+              <i class="fas fa-file-upload text-warning"></i>
+            </button>
+          </li>
+          <li role="presentation" class="nav-item">
+            <button (click)="goToStep(4)" [class.active]="currentStep === 4" class="nav-link">
+              <i class="fas fa-stamp text-info"></i>
+            </button>
+          </li>
+        </ul>
+        <div [ngSwitch]="currentStep">
+          <app-consumer-details    *ngSwitchCase="1" (nextStep)="onNextStep($event)"></app-consumer-details>
+          <app-water-connection *ngSwitchCase="2" (nextStep)="onNextStep($event)" (previousStep)="onPreviousStep($event)"></app-water-connection>
+          <app-file-uploads *ngSwitchCase="3" (nextStep)="onNextStep($event)" (previousStep)="onPreviousStep($event)"></app-file-uploads>
+          <app-complete *ngSwitchCase="4" (previousStep)="onPreviousStep($event)"></app-complete>
+        </div>
+      </section>
+    </div>
+  </div>
+  

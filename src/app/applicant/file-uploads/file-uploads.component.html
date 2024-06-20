@@ -1,0 +1,132 @@
+   
+<div class="tab-pane" role="tabpanel" id="step3">
+    <h4>Step 3 (File Uploads)</h4>
+    <form id="step_3" (ngSubmit)="onSubmit()" [formGroup]="formData" enctype="multipart/form-data">
+   
+      <input type="hidden" formControlName="temp_consumer_id_step3">
+      <input type="hidden" formControlName="temp_consumer_no_step3">
+      <input type="hidden" formControlName="consumer_user_id_step3">
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="buliding_plan">Attested copy of B.P plan of the house approved by the concern authority</label>
+          <input type="file" formControlName="buliding_plan" id="buliding_plan">
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="ownersip_certificate">Ownership Certificate/ Land property document (attested by LRDD) Parcha</label>
+          <input type="file" formControlName="ownersip_certificate" id="ownersip_certificate">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="pass_photo">Passport Photo</label>
+          <input type="file" formControlName="pass_photo" id="pass_photo">
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="photo_id">Photo ID proof</label>
+          <input type="file" formControlName="photo_id" id="photo_id">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="aadhar_card">Aadhar Card</label>
+          <input type="file" formControlName="aadhar_card" id="aadhar_card">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="voter_card">Voter ID</label>
+          <input type="file" formControlName="voter_card" id="voter_card">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="premises_photo">Photo of Premises</label>
+          <input type="file" formControlName="premises_photo" id="premises_photo">
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Cost of Form Rs 25/- (State Bank of Sikkim under head :0215-01-103 Urban Water Supply)</label>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_no_for_form">BR No.</label>
+          <input type="text" class="form-control" formControlName="bank_receipt_no_for_form" id="bank_receipt_no_for_form" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_amount_for_form">BR Amount</label>
+          <input type="text" class="form-control" formControlName="bank_receipt_amount_for_form" id="bank_receipt_amount_for_form" value="25" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_date_for_form">BR Date</label>
+          <input type="date" class="form-control" formControlName="bank_receipt_date_for_form" id="bank_receipt_date_for_form" required>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Fee of New Connection Rs 600/- (State Bank of Sikkim under head :0215-01-103 Urban Water Supply)</label>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_no_for_connection">BR No.</label>
+          <input type="text" class="form-control" formControlName="bank_receipt_no_for_connection" id="bank_receipt_no_for_connection" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_amount_for_connection">BR Amount</label>
+          <input type="text" class="form-control" formControlName="bank_receipt_amount_for_connection" id="bank_receipt_amount_for_connection" value="600" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="bank_receipt_date_for_connection">BR Date</label>
+          <input type="date" class="form-control" formControlName="bank_receipt_date_for_connection" id="bank_receipt_date_for_connection" required>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="chamber_point_reference_no">Distribution Box</label>
+          <input type="text" class="form-control" formControlName="chamber_point_reference_no" id="chamber_point_reference_no" required>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label for="approved_connection_id">Connection ID No</label>
+          <input type="text" class="form-control" formControlName="approved_connection_id" id="approved_connection_id" required>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label for="approved_ward_id">Ward No</label>
+          <select class="form-control" formControlName="approved_ward_id" id="approved_ward_id">
+            <!-- Add options if needed -->
+          </select>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label for="approved_zone_id">Zone</label>
+          <select class="form-control" formControlName="approved_zone_id" id="approved_zone_id" required>
+            <!-- Add options if needed -->
+          </select>
+        </div>
+  
+        <div class="form-group col-md-3">
+          <label for="billing_effective_form">Billing w.e.f.</label>
+          <input type="date" class="form-control" formControlName="billing_effective_form" id="billing_effective_form" required>
+        </div>
+      </div>
+  
+      <ul class="float-right">
+        <li class="list-inline-item">
+          <button type="button" class="btn btn-outline-primary prev-step">Previous</button>
+        </li>
+        <li class="list-inline-item">
+          <button type="button" class="btn btn-outline-primary next-step">Skip</button>
+        </li>
+        <li class="list-inline-item">
+          <button type="submit" id="step3_button" class="btn btn-primary btn-info-full next-step">Save and Continue</button>
+        </li>
+      </ul>
+    </form>
+  </div>
+  

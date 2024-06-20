@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,24 +11,32 @@ export class SignupComponent {
   signupForm: FormGroup;
   clicked = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.signupForm = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      mobilenumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      mobilenumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       password: ['', [Validators.required, Validators.minLength(8)]],
+      role: ['', Validators.required]
     });
   }
-  onClickBeforeSubmit(){
+
+  onClickBeforeSubmit() {
     this.clicked = true;
-
   }
-  signUp() {
-    
 
+  signUp() {
     if (this.signupForm.valid) {
-      // Handle signup logic or submit the form as needed
-      console.log('Form submitted successfully!', this.signupForm.value);
+      const { name, email, mobilenumber, password, role } = this.signupForm.value;
+      this.authService.signup(name, email, mobilenumber, password, role).subscribe((response : any ) => {
+        if (response.success) {
+          console.log('Signup successful:', response);
+          // Handle successful signup, e.g., navigate to login page or dashboard
+        } else {
+          console.log('Signup failed:', response.message);
+          // Handle signup failure, e.g., show error message
+        }
+      });
     }
   }
 }

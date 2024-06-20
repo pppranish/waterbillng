@@ -24,6 +24,9 @@ export class AdminGuard implements CanActivate {
     if (currentUser && currentUser.role === 'consumer') { 
       return this.router.createUrlTree(['/consumer']); 
     }
+    if (currentUser && currentUser.role === 'Applicant') { 
+      return this.router.createUrlTree(['/applicant']); 
+    }
 
    
     return this.router.createUrlTree(['/login']);

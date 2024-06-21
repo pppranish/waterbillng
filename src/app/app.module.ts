@@ -19,21 +19,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
 
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
-import { MainComponent } from './components/admin/main/main.component';
 
-import { HeadComponent } from './components/admin/head/head.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DasboardComponent } from './components/admin/dasboard/dasboard.component';
-import { ConnectionComponent } from './components/admin/connection/connection.component';
-import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
-import { SewageBillComponent } from './components/admin/sewage-bill/sewage-bill.component';
-import { PaymentHistoryComponent } from './components/admin/payment-history/payment-history.component';
-import { MessageInboxComponent } from './components/admin/message-inbox/message-inbox.component';
-import { UserManagmentComponent } from './components/admin/user-managment/user-managment.component';
-import { ErrorLogsComponent } from './components/admin/error-logs/error-logs.component';
-import { AuthService } from './services/auth.service';
-import { ConsumptionComponent } from './components/admin/consumption/consumption.component';
 
+import { AuthService } from './services/auth.service';
 import { FeatureModule } from './feature/feature.module';
 import { ApplicantComponent } from './applicant/applicant.component';
 import { ConsumerDetailsComponent } from './applicant/consumer-details/consumer-details.component';
@@ -41,6 +31,8 @@ import { WaterConnectionComponent } from './applicant/water-connection/water-con
 import { FileUploadsComponent } from './applicant/file-uploads/file-uploads.component';
 import { PreviewComponent } from './applicant/preview/preview.component';
 import { CompleteComponent } from './applicant/complete/complete.component';
+import { TopnavComponent } from './components/admin/topnav/topnav.component';
+
 
 
 @NgModule({
@@ -58,24 +50,18 @@ import { CompleteComponent } from './applicant/complete/complete.component';
         LoginComponent,
         SignupComponent,
         AdminComponent,
-        MainComponent,
+    
         SidebarComponent,
-        HeadComponent,
+     
         DasboardComponent,
-        ConnectionComponent,
-        WaterBillComponent,
-        SewageBillComponent,
-        PaymentHistoryComponent,
-        MessageInboxComponent,
-        UserManagmentComponent,
-        ErrorLogsComponent,
-        ConsumptionComponent,
         ApplicantComponent,
         ConsumerDetailsComponent,
         WaterConnectionComponent,
         FileUploadsComponent,
         PreviewComponent,
         CompleteComponent,
+        TopnavComponent,
+   
       
      
   ],

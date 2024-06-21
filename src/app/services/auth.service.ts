@@ -70,4 +70,26 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+
+
+
+  getUserName(): string {
+    // Replace with actual implementation to fetch user name
+    return 'John Doe';
+  }
+
+  hasPermission(permission: string): boolean {
+    // Replace with actual implementation to check user permissions
+    const permissions = ['can-access-water', 'can-access-sewerage'];
+    return permissions.includes(permission);
+  }
+
+  isSuperAdmin(): boolean {
+    // Replace with actual implementation to check if user is a super admin
+    return true;
+  }
+
+
+
 }

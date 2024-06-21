@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from 'src/app/services/auth.service';
 
 import {
   faTachometerAlt, // Dashboard
@@ -35,6 +35,21 @@ export class SidebarComponent {
   famessageinbox = faEnvelope
   fausermanagement =   faUserCog
   faerrorlogs =   faExclamationTriangle
+
+
+  userName: string = '';
+  canAccessWater: boolean = true;
+  canAccessSewerage: boolean = true;
+  isSuperAdmin: boolean = true ;
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.userName = this.authService.getUserName();
+    this.canAccessWater = this.authService.hasPermission('can-access-water');
+    this.canAccessSewerage = this.authService.hasPermission('can-access-sewerage');
+    this.isSuperAdmin = this.authService.isSuperAdmin();
+  }
 
 
 }

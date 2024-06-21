@@ -1,38 +1,265 @@
-<div class="nav-items">
-  <div class="nav-item" routerLink="dashboard" routerLinkActive="active">
-    <fa-icon [icon]="fadashboard"></fa-icon>
-    Dashboard
+<!-- sidebar.component.html -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+  <a [routerLink]="['dasboard']" class="brand-link">
+    <img src="../../../assets/images/logo2.jpg" alt="AdminLTE Logo" class="brand-image elevation-3"><br>
+    <small id="deptInline" class="text-muted font-weight-bold">
+      Public Health & Engg. Dept.
+    </small>
+  </a>
+  
+ 
+
+
+  <div class="sidebar">
+  
+
+
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <a routerLink="dashboard" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a routerLink="connection" class="nav-link">
+            <i class="fas fa-wrench text-success"></i>
+            <p>Connection<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-consumer-list" class="nav-link">
+                <i class="fas fa-hand-holding-water"></i>
+                <p>Water</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessSewerage">
+              <a routerLink="/sewerage-consumer-list" class="nav-link">
+                <i class="fas fa-toilet"></i>
+                <p>Sewerage</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="fas fa-thermometer-half text-primary"></i>
+            <p>Consumption<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-consumption-tap-single" class="nav-link">
+                <i class="fas fa-faucet"></i>
+                <p>Water (Tap-Single Consumer)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-consumption-tap-all" class="nav-link">
+                <i class="fas fa-faucet"></i>
+                <p>Water (Tap-All Consumers)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-consumption-meter" class="nav-link">
+                <i class="fas fa-weight"></i>
+                <p>Water (Meter Based)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessSewerage">
+              <a routerLink="/sewerage-consumption" class="nav-link">
+                <i class="fas fa-toilet"></i>
+                <p>Sewerage</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview" *ngIf="canAccessWater">
+          <a routerLink="water-bill" class="nav-link">
+            <i class="fas fa-rupee-sign text-info"></i>
+            <p>Water Bill<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/generate-bill-tap-based" class="nav-link">
+                <i class="fas fa-file-invoice"></i>
+                <p>Generate Bill (Tap-based)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/print-bill-water" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Print Bill (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/bill-payment-water" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Bill Payment (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/arrear-update-water" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Arrear Update (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/miscellaneous-operation-water" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Miscellaneous Op. (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/start-stop-bill-water" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Start/Stop Bill (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/bill-defaulter-notification" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Bill Defaulter Notification</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview" *ngIf="canAccessSewerage">
+          <a routerLink="sewage-bill" class="nav-link">
+            <i class="fas fa-rupee-sign text-info"></i>
+            <p>Sewerage Bill<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/generate-bill-sewerage" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Generate Bill (Sewerage)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/print-bill-sewerage" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Print Bill (Sewerage)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/arrears-update-sewerage" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Arrears Update (Sewerage)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/offline-payment-sewerage" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Offline Payment (Sewerage)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/start-stop-bill-sewerage" class="nav-link">
+                <i class="fas fa-stopwatch"></i>
+                <p>Start/Stop Bill (Sewerage)</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/miscellaneous-operation-sewerage" class="nav-link">
+                <i class="fab fa-cc-amazon-pay"></i>
+                <p>Miscellaneous Op. (Sewerage)</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a routerLink="payment-history" class="nav-link">
+            <i class="fas fa-history text-secondary"></i>
+            <p>Payment History<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/history-water-bill" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>History (Water bill)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessSewerage">
+              <a routerLink="/history-sewerage-bill" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>History (Sewerage bill)</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="fas fa-file-alt text-warning"></i>
+            <p>Reports<i class="right fas fa-angle-left"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-tap-based-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Tap Based Report</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-consumption-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Consumption Report (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-bill-due-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Water Bill Due Report</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-collection-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Collection Report (Water)</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessWater">
+              <a routerLink="/water-miscellaneous-collection-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Miscellaneous Collection Report</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessSewerage">
+              <a routerLink="/sewerage-bill-due-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Sewerage Bill Due Report</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="canAccessSewerage">
+              <a routerLink="/sewerage-collection-report" class="nav-link">
+                <i class="fas fa-print"></i>
+                <p>Collection Report (Sewerage)</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="isSuperAdmin">
+          <a routerLink="user" class="nav-link">
+            <i class="nav-icon fas fa-users text-danger"></i>
+            <p>User Management</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="error-logs" class="nav-link">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error Logs</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <div class="nav-item" routerLink="connection" routerLinkActive="active">
-    <fa-icon [icon]="faconsumption"></fa-icon>
-    Connection
-  </div>
-  <div class="nav-item" routerLink="consumption">
-    <fa-icon [icon]="faconsumption"></fa-icon>
-    Consumption
-  </div>
-  <div class="nav-item" routerLink="water-bill">
-    <fa-icon [icon]="fawatervill"></fa-icon>
-    Water Bill
-  </div>
-  <div class="nav-item" routerLink="sewage-bill">
-    <fa-icon [icon]="fasewaragebill"></fa-icon>
-    Sewage Bill
-  </div>
-  <div class="nav-item" routerLink="payment-history">
-    <fa-icon [icon]="fapaymenthistory"></fa-icon>
-    Payment History
-  </div>
-  <div class="nav-item" routerLink="message-inbox">
-    <fa-icon [icon]="famessageinbox"></fa-icon>
-    Message Inbox
-  </div>
-  <div class="nav-item" routerLink="user-management">
-    <fa-icon [icon]="fausermanagement"></fa-icon>
-    User Management
-  </div>
-  <div class="nav-item" routerLink="error-logs">
-    <fa-icon [icon]="faerrorlogs"></fa-icon>
-    Error Logs
-  </div>
-</div>
+</aside>

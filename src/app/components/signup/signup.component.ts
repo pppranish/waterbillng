@@ -28,7 +28,7 @@ export class SignupComponent {
   signUp() {
     if (this.signupForm.valid) {
       const { name, email, mobilenumber, password, role } = this.signupForm.value;
-      this.authService.signup(name, email, mobilenumber, password, role).subscribe((response : any ) => {
+      this.authService.signup(name, email, mobilenumber, password, role) .subscribe((response : any ) => {
         if (response.success) {
           console.log('Signup successful:', response);
           // Handle successful signup, e.g., navigate to login page or dashboard

@@ -6,18 +6,11 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { DasboardComponent } from './components/admin/dasboard/dasboard.component';
-import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
-import { ConnectionComponent } from './components/admin/connection/connection.component';
-import { SewageBillComponent } from './components/admin/sewage-bill/sewage-bill.component';
-import { PaymentHistoryComponent } from './components/admin/payment-history/payment-history.component';
-import { MessageInboxComponent } from './components/admin/message-inbox/message-inbox.component';
-import { ErrorLogsComponent } from './components/admin/error-logs/error-logs.component';
-import { UserManagmentComponent } from './components/admin/user-managment/user-managment.component';
-import { ConsumptionComponent } from './components/admin/consumption/consumption.component';
 import { AdminGuard } from './auth/admin.guard';
 import {inject} from '@angular/core';
+import { DasboardComponent } from './components/admin/dasboard/dasboard.component';
 import { ApplicantComponent } from './applicant/applicant.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,16 +24,9 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     component: AdminComponent, children:[
     {path: 'dashboard', component: DasboardComponent},
-    { path: 'connection', component: ConnectionComponent },
-    {path:'consumption' , component: ConsumptionComponent},
-    { path: 'water-bill', component: WaterBillComponent },
-    { path: 'sewage-bill', component: SewageBillComponent },
-    { path: 'payment-history', component: PaymentHistoryComponent },
-    { path: 'message-inbox', component: MessageInboxComponent },
-    { path: 'user-management', component: UserManagmentComponent},
-    { path: 'error-logs', component: ErrorLogsComponent },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full'}
   ]},
+
+ 
 
 
   {path : 'applicant' ,

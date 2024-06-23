@@ -25,13 +25,13 @@
         </li>
 
         <li class="nav-item has-treeview">
-          <a routerLink="connection" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="fas fa-wrench text-success"></i>
             <p>Connection<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item" *ngIf="canAccessWater">
-              <a routerLink="/water-consumer-list" class="nav-link">
+              <a routerLink="water-consumer-list" class="nav-link">
                 <i class="fas fa-hand-holding-water"></i>
                 <p>Water</p>
               </a>
@@ -64,7 +64,7 @@
               </a>
             </li>
             <li class="nav-item" *ngIf="canAccessWater">
-              <a routerLink="/water-consumption-meter" class="nav-link">
+              <a routerLink="meter-reading" class="nav-link">
                 <i class="fas fa-weight"></i>
                 <p>Water (Meter Based)</p>
               </a>
@@ -247,7 +247,7 @@
         </li>
 
         <li class="nav-item" *ngIf="isSuperAdmin">
-          <a routerLink="user" class="nav-link">
+          <a routerLink="workflow-users" class="nav-link">
             <i class="nav-icon fas fa-users text-danger"></i>
             <p>User Management</p>
           </a>

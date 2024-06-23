@@ -47,20 +47,12 @@ export class WaterConnectionComponent {
 
   submitForm(form: NgForm): void {
     if (form.valid) {
-      // Perform HTTP request or submit data to backend
+     
       console.log('Form submitted!', this.formData);
-      // Example of how you might submit data using Angular HttpClient:
-      // this.http.post<any>('your-api-endpoint', this.formData).subscribe(response => {
-      //   console.log('Response:', response);
-      //   // Handle success or redirect as needed
-      // }, error => {
-      //   console.error('Error:', error);
-      //   // Handle error scenario
-      // });
     } else {
-      // Handle form validation errors or display messages
+    
       console.log('Form is invalid!');
-      // You might also mark fields as touched to trigger validation messages
+
       Object.keys(form.controls).forEach(key => {
         form.controls[key].markAsTouched();
       });

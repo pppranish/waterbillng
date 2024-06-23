@@ -11,9 +11,12 @@ export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  
+
 
   constructor(private http: HttpClient) {
     // Initialize the currentUserSubject with the value from localStorage or null
+
     const storedUser = localStorage.getItem('currentUser');
     this.currentUserSubject = new BehaviorSubject<any>(storedUser ? JSON.parse(storedUser) : null);
     this.currentUser = this.currentUserSubject.asObservable();
@@ -31,7 +34,7 @@ export class AuthService {
           // Store user details in local storage and update currentUserSubject
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
-          return { success: true, username: user.username, role: user.role };
+          return { success: true, username: user.name,  role: user.role };
         } else {
           return { success: false, message: 'Invalid credentials' };
         }
@@ -57,7 +60,7 @@ export class AuthService {
         if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
-          return { success: true, username: user.username, role: user.role };
+          return { success: true, username: user.name, role: user.role };
         } else {
           return { success: false, message: 'Signup failed' };
         }
@@ -66,7 +69,7 @@ export class AuthService {
   }
 
   logout() {
-    // Remove user from local storage and set currentUserSubject to null
+  
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
@@ -86,7 +89,7 @@ export class AuthService {
   }
 
   isSuperAdmin(): boolean {
-    // Replace with actual implementation to check if user is a super admin
+    
     return true;
   }
 

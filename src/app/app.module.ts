@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+ 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
@@ -32,6 +38,13 @@ import { FileUploadsComponent } from './applicant/file-uploads/file-uploads.comp
 import { PreviewComponent } from './applicant/preview/preview.component';
 import { CompleteComponent } from './applicant/complete/complete.component';
 import { TopnavComponent } from './components/admin/topnav/topnav.component';
+import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
+import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
+import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
+import { CreateUserComponent } from './components/admin/create-user/create-user.component';
+
+
+
 
 
 
@@ -61,6 +74,12 @@ import { TopnavComponent } from './components/admin/topnav/topnav.component';
         PreviewComponent,
         CompleteComponent,
         TopnavComponent,
+        WaterConsumerListComponent,
+        MeterReadingComponent,
+        WorkflowUsersComponent,
+        CreateUserComponent
+   
+       
    
       
      
@@ -74,6 +93,12 @@ import { TopnavComponent } from './components/admin/topnav/topnav.component';
     FontAwesomeModule,
     FeatureModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    BrowserModule
   ],
   providers: [ AuthService],
   bootstrap: [AppComponent]

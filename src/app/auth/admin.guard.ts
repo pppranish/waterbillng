@@ -18,7 +18,7 @@ export class AdminGuard implements CanActivate {
     const currentUser = this.authService.currentUserValue; 
 
     console.log('Current User:', currentUser);
-    if (currentUser && currentUser.role === 'admin') { 
+    if (currentUser && currentUser.role === 'Admin') { 
       return true;
     }
     if (currentUser && currentUser.role === 'consumer') { 

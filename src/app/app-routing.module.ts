@@ -10,7 +10,11 @@ import { AdminGuard } from './auth/admin.guard';
 import {inject} from '@angular/core';
 import { DasboardComponent } from './components/admin/dasboard/dasboard.component';
 import { ApplicantComponent } from './applicant/applicant.component';
-
+import { WaterConnectionComponent } from './applicant/water-connection/water-connection.component';
+import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
+import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
+import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
+import { CreateUserComponent } from './components/admin/create-user/create-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,9 +28,17 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     component: AdminComponent, children:[
     {path: 'dashboard', component: DasboardComponent},
+    {path: 'water-consumer-list', component: WaterConsumerListComponent},
+    {path : 'meter-reading', component : MeterReadingComponent},
+   { path: 'workflow-users',
+    canActivate: [AdminGuard],
+    component: WorkflowUsersComponent,
+  },
+  {path : 'create-user' , component : CreateUserComponent},
+    
   ]},
 
- 
+
 
 
   {path : 'applicant' ,

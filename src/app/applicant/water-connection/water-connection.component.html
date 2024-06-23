@@ -1,9 +1,7 @@
-
-
 <div class="tab-pane" role="tabpanel" id="step2">
     <h4>Step 2 (Water Connection Details)</h4>
 
-    <form #step2Form="ngForm" (ngSubmit)="submitForm">
+    <form #step2Form="ngForm" (ngSubmit)="submitForm" class="form">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="has_sewerage_connection">Having Sewerage Connection</label>
@@ -24,12 +22,8 @@
 
         <div class="form-row">
             <div class="form-group col-md-12">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <label for="no_of_water_connections">No. of water connections in the same premises</label>
-                        <!-- You can add dynamic rows here if required -->
-                    </div>
-                </div>
+                <label for="no_of_water_connections">No. of water connections in the same premises</label>
+                <!-- You can add dynamic rows here if required -->
             </div>
         </div>
 

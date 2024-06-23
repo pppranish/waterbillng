@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "admin@gmail.com",
-      "password": "12345",
-      "role": "admin"
-    },
-    {
       "name": "pranish",
       "email": "Pranish_202000069@smit.smu.edu.in",
       "mobilenumber": "8972287049",
@@ -37,6 +31,22 @@
       "password": "123456789",
       "role": "Applicant",
       "id": 5
+    },
+    {
+      "name": "pranish pradhan",
+      "email": "admin@1.com",
+      "mobilenumber": "9365798266",
+      "password": "12345678910",
+      "role": "Admin",
+      "id": 6
+    },
+    {
+      "name": "pranish",
+      "email": "admin@12.com",
+      "mobilenumber": "8972287049",
+      "password": "12345678910",
+      "role": "Admin",
+      "id": 7
     }
   ]
 }

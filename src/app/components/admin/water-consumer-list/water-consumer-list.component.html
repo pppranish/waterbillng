@@ -1,0 +1,69 @@
+<div class="container py-3 my-3 border rounded shadow-sm">
+    <div class="card-header">
+      <h3 class="card-title">List of Connections</h3>
+      <div class="card-tools">
+        <button mat-raised-button color="primary" (click)="navigateToNewConnection()">
+          <mat-icon>add</mat-icon> New Connection
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table mat-table [dataSource]="items" class="mat-elevation-z8">
+  
+        <!-- Consumer Number Column -->
+        <ng-container matColumnDef="consumer_no">
+          <th mat-header-cell *matHeaderCellDef>Consumer No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.consumer_no }}</td>
+        </ng-container>
+  
+        <!-- Consumer Name Column -->
+        <ng-container matColumnDef="consumer_name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.consumer_name }}</td>
+        </ng-container>
+  
+        <!-- House Name Column -->
+        <ng-container matColumnDef="house_name">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{ element.house_name }}</td>
+        </ng-container>
+  
+        <!-- Water Required For Column -->
+        <ng-container matColumnDef="water_required_for">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let element">{{ element.water_required_for }}</td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+  
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="editItem(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewItem(element.id, element.user_id)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button (click)="updateItem(element.id, element.user_id)">
+              <mat-icon>update</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <!-- Display status message if any -->
+      <div *ngIf="statusMessage" class="alert alert-warning mt-3">
+        {{ statusMessage }}
+      </div>
+    </div>
+  </div>
+  

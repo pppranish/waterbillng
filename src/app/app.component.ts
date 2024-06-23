@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   private updateHeaderAndNavbarVisibility(url: string): void {
-    const excludedRoutes = ['login', 'signup' , 'admin' , 'dashboard', 'connection' , 'consumption', "user" , 'water-bill', 'sewage-bill' , 'payment-history', 'message-inbox' , 'user-management' , 'error-logs', 'applicant' ];
+    const excludedRoutes = ['login', 'signup' , 'meter-reading','admin','workflow-users' ,'create-user', 'dashboard', 'connection' ,'water-consumer-list', 'consumption', "user" , 'water-bill', 'sewage-bill' , 'payment-history', 'message-inbox' , 'user-management' , 'error-logs', 'applicant' ];
 
   
     if (excludedRoutes.some(route => url.endsWith(route))) {

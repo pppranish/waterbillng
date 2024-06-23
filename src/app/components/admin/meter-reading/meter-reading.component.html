@@ -1,0 +1,81 @@
+<div class="container mt-4">
+    <!-- Search Consumer Card -->
+    <div class="card">
+      <div class="card-header bg-info">
+        <i class="fas fa-clipboard-list"></i> <b>Search Consumer</b>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="billing_zone">Zone</label>
+              <select formControlName="billing_zone" id="billing_zone" class="form-control" (change)="onBillingZoneChange()" required>
+                <option value="">--Select--</option>
+                <option *ngFor="let zone of billingZones" [value]="zone.id">{{ zone.name }}</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="consumer_no">Consumer No:</label>
+              <select formControlName="consumer_no" id="consumer_no" class="form-control" required>
+                <option value="">--Select--</option>
+                <option *ngFor="let consumer of consumers" [value]="consumer.id">{{ consumer.consumer_no }}</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <button id="payment_search_button" class="form-control btn btn-primary" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Meter Reading Form -->
+    <div *ngIf="isConsumerFound" class="card mt-4">
+      <div class="card-header bg-info">
+        <h4 class="card-title"><i class="glyphicon glyphicon-pencil"></i> Record Meter Reading</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="meterReadingForm" (ngSubmit)="onMeterReadingSubmit()">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="consumer_no">Consumer Number: </label><span>{{ consumerData.consumer_no }}</span>
+              <input type="hidden" formControlName="consumer_no">
+              <input type="hidden" formControlName="consumer_id">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="consumer_name">Consumer Name: </label><span>{{ consumerData.consumer_name }}</span>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="consumer_address">Consumer Address: </label><span>{{ consumerData.consumer_address }}</span>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="meter_no">Meter Number: </label><span>{{ consumerData.meter_no }}</span>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="last_recorded">Last Recorded: </label><span>{{ consumerData.last_recorded }}</span>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="previous_month_meter_reading">Previous Month Meter Reading:</label>
+              <input type="text" formControlName="previous_month_meter_reading" class="form-control" readonly>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="month">Month:</label>
+              <input type="text" formControlName="month" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="year">Year:</label>
+              <input type="text" formControlName="year" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="current_month_meter_reading">Current Month Meter Reading:</label>
+              <input type="text" formControlName="current_month_meter_reading" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <button class="form-control btn btn-primary" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

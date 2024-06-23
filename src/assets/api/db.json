@@ -1,0 +1,12 @@
+{
+  "zones": [
+    { "id": 1, "name": "Zone 1" },
+    { "id": 2, "name": "Zone 2" },
+    { "id": 3, "name": "Zone 3" }
+  ],
+  "consumers": [
+    { "id": 1, "consumer_no": "123", "zone_id": 1 },
+    { "id": 2, "consumer_no": "456", "zone_id": 1 },
+    { "id": 3, "consumer_no": "789", "zone_id": 2 }
+  ]
+}

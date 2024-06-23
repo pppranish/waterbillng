@@ -1,8 +1,11 @@
+<!-- workflow-users.component.html -->
+
+
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List of all Workflow Users</h3>
         <div class="card-tools">
-            <a routerLink="create-user" class="btn btn-tool">
+            <a [routerLink]="['create-user']" class="btn btn-tool">
                 <i class="fas fa-user-plus"></i> New User
             </a>
         </div>
@@ -23,7 +26,7 @@
                     <td>{{ workflowUser.first_name }}</td>
                     <td>{{ workflowUser.contact_number }}</td>
                     <td>{{ workflowUser.email }}</td>
-                    <td>{{ workflowUser.designation  }}</td>
+                    <td>{{ workflowUser.designation }}</td>
                     <td>
                         <button class="btn btn-block btn-success" (click)="editWorkflowUser(workflowUser.id)">Edit</button>
                         <button class="btn btn-block btn-danger" (click)="deleteWorkflowUser(workflowUser.id)">Delete</button>
@@ -32,4 +35,7 @@
             </tbody>
         </table>
     </div>
+  
 </div>
+
+

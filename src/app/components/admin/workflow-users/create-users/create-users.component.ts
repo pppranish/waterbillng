@@ -1,13 +1,15 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { WorkflowUsersService } from 'src/app/services/workflow-user.service';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms'; 
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.css']
+  selector: 'app-create-users',
+  templateUrl: './create-users.component.html',
+  styleUrls: ['./create-users.component.css']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUsersComponent implements OnInit {
   userForm!: FormGroup;
   errorMessage!: string;
 
@@ -97,17 +99,21 @@ export class CreateUserComponent implements OnInit {
   }
 
   saveUser() {
-    this.workflowUsersService.createUser(this.userForm.value).subscribe({
-      next: (response) => {
-        console.log('User created successfully', response);
-        // handle success, e.g., navigate to another page
-      },
-      error: (error) => {
-        console.error('Error creating user', error);
-        // display error message to the user
-        this.errorMessage = 'Failed to create user: ' + (error.message || error.statusText || 'Unknown error');
-      }
-    });
+    if (this.userForm.invalid) {
+      this.workflowUsersService.createUser(this.userForm.value).subscribe({
+        next: (response) => {
+          console.log('User created successfully', response);
+        
+        },
+        error: (error) => {
+          console.error('Error creating user', error);
+      
+          this.errorMessage = 'Failed to create user: ' + (error.message || error.statusText || 'Unknown error');
+        }
+      });
+      return;
+    }
+
   }
   
   }

@@ -41,7 +41,8 @@ import { TopnavComponent } from './components/admin/topnav/topnav.component';
 import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
 import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
 import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
-import { CreateUserComponent } from './components/admin/create-user/create-user.component';
+
+import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 
 
 
@@ -77,7 +78,8 @@ import { CreateUserComponent } from './components/admin/create-user/create-user.
         WaterConsumerListComponent,
         MeterReadingComponent,
         WorkflowUsersComponent,
-        CreateUserComponent
+   
+        CreateUsersComponent
    
        
    

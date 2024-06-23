@@ -14,7 +14,7 @@ import { WaterConnectionComponent } from './applicant/water-connection/water-con
 import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
 import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
 import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
-import { CreateUserComponent } from './components/admin/create-user/create-user.component';
+import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,20 +23,24 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
 
   { path: 'signup', component: SignupComponent },
-  {  
+  {
     path: 'admin',
     canActivate: [AdminGuard],
-    component: AdminComponent, children:[
-    {path: 'dashboard', component: DasboardComponent},
-    {path: 'water-consumer-list', component: WaterConsumerListComponent},
-    {path : 'meter-reading', component : MeterReadingComponent},
-   { path: 'workflow-users',
-    canActivate: [AdminGuard],
-    component: WorkflowUsersComponent,
+    component: AdminComponent,
+    children: [
+      { path: 'dashboard', component: DasboardComponent },
+      { path: 'water-consumer-list', component: WaterConsumerListComponent },
+      { path: 'meter-reading', component: MeterReadingComponent },
+      { 
+        path: 'workflow-users',
+        canActivate: [AdminGuard],
+        children: [
+          { path: '', component: WorkflowUsersComponent },
+          { path: 'create-user', component: CreateUsersComponent },
+        ]
+      },
+    ]
   },
-  {path : 'create-user' , component : CreateUserComponent},
-    
-  ]},
 
 
 

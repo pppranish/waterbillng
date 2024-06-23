@@ -20,14 +20,14 @@
             </thead>
             <tbody>
                 <tr *ngFor="let workflowUser of workflowUsers">
-                    <td>{{ workflowUser.name }}</td>
-                    <td>{{ workflowUser.contactNumber }}</td>
+                    <td>{{ workflowUser.first_name }}</td>
+                    <td>{{ workflowUser.contact_number }}</td>
                     <td>{{ workflowUser.email }}</td>
-                    <td>{{ workflowUser.workflowProfile ? workflowUser.workflowProfile.designation : '-' }}</td>
+                    <td>{{ workflowUser.designation  }}</td>
                     <td>
-                        <!-- <button class="btn btn-block btn-success" (click)="editWorkflowUser(workflowUser.id)">Edit</button>
+                        <button class="btn btn-block btn-success" (click)="editWorkflowUser(workflowUser.id)">Edit</button>
                         <button class="btn btn-block btn-danger" (click)="deleteWorkflowUser(workflowUser.id)">Delete</button>
-                    </td> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

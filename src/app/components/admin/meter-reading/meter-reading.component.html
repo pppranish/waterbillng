@@ -18,7 +18,7 @@
               <label for="consumer_no">Consumer No:</label>
               <select formControlName="consumer_no" id="consumer_no" class="form-control" required>
                 <option value="">--Select--</option>
-                <option *ngFor="let consumer of consumers" [value]="consumer.id">{{ consumer.consumer_no }}</option>
+                <option *ngFor="let consumer of consumers" [value]="consumer.consumer_no">{{ consumer.consumer_no }}</option>
               </select>
             </div>
             <div class="col-md-4 mb-3">
@@ -38,25 +38,26 @@
         <form [formGroup]="meterReadingForm" (ngSubmit)="onMeterReadingSubmit()">
           <div class="form-row">
             <div class="col-md-4 mb-3">
-              <label for="consumer_no">Consumer Number: </label><span>{{ consumerData.consumer_no }}</span>
+              <label for="consumer_no">Consumer Number: </label><span>{{ consumerData[0].consumer_no }}</span>
               <input type="hidden" formControlName="consumer_no">
               <input type="hidden" formControlName="consumer_id">
             </div>
             <div class="col-md-4 mb-3">
-              <label for="consumer_name">Consumer Name: </label><span>{{ consumerData.consumer_name }}</span>
+              <label for="consumer_name">Consumer Name: </label><span>{{ consumerData[0].consumer_name }}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="consumer_address">Consumer Address: </label><span>{{ consumerData.consumer_address }}</span>
+              <label for="consumer_address">Consumer Address: </label><span>{{ consumerData[0].street_name }}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="meter_no">Meter Number: </label><span>{{ consumerData.meter_no }}</span>
+              <label for="meter_no">Meter Number: </label><span>{{ consumerData[0].water_meter_id}}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="last_recorded">Last Recorded: </label><span>{{ consumerData.last_recorded }}</span>
+              <label for="last_recorded">Last Recorded: </label><span>{{ consumerData[0].month_name
+                }}</span>
             </div>
             <div class="col-md-4 mb-3">
               <label for="previous_month_meter_reading">Previous Month Meter Reading:</label>
-              <input type="text" formControlName="previous_month_meter_reading" class="form-control" readonly>
+              <input type="text" formControlName="previous_month_meter_reading" class="form-control" readonly >
             </div>
             <div class="col-md-4 mb-3">
               <label for="month">Month:</label>

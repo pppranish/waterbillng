@@ -57,20 +57,37 @@ export class MeterReadingComponent implements OnInit {
 
   
 
-  onSearchSubmit(): void {
-    if (this.searchForm.valid) {
-      this.apiService.getPreviousWaterConsumption(this.searchForm.value).subscribe(data => {
-        this.consumerData = data;
-        this.isConsumerFound = true;
-        this.meterReadingForm.patchValue({
-          consumer_no: data.consumer_no,
-          consumer_id: data.consumer_id,
-          previous_month_meter_reading: data.prev_meter_reading
-        });
-      });
-    }
-  }
+    onSearchSubmit(): void {
+      if (this.searchForm.valid) {
+        const consumerNo = this.searchForm.get('consumer_no')?.value;  
 
+        console.log('Consumer Number:', consumerNo);  
+    
+        this.apiService.getPreviousWaterConsumption(consumerNo).subscribe(
+          data => {
+            console.log('API Response:', data); 
+    
+            if (data) {
+              this.consumerData = data;
+              this.isConsumerFound = true;
+              this.meterReadingForm.patchValue({
+                consumer_no: data.consumer_no,
+                consumer_id: data.consumer_id,
+                previous_month_meter_reading: data.prev_meter_reading
+              });
+            } else {
+              this.isConsumerFound = false;
+              console.error('No data found for the given consumer number.');
+            }
+          },
+          error => {
+            this.isConsumerFound = false;
+            console.error('Error fetching data:', error);
+          }
+        );
+      }
+    }
+    
   onMeterReadingSubmit(): void {
     if (this.meterReadingForm.valid) {
       this.apiService.processWaterConsumption(this.meterReadingForm.value).subscribe(() => {

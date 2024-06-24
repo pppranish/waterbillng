@@ -1,5 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { faUserPen,faFaucet, faFileArrowUp,faStamp } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 import { ConsumerDetailsComponent } from './consumer-details/consumer-details.component';
 import { FileUploadsComponent } from './file-uploads/file-uploads.component';
@@ -30,7 +31,9 @@ export class ApplicantComponent implements OnInit {
   onPreviousStep(event: any) {
     this.currentStep--;
   }
-
-
+  faUserPen=faUserPen;
+  faFaucet=faFaucet;
+  faFileArrowUp=faFileArrowUp;
+  faStamp=faStamp;
 
 }

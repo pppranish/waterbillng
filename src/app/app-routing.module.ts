@@ -46,10 +46,6 @@ const routes: Routes = [
       {path : "print-bill" , component : PrintBillComponent},
     ]
   },
-
-
-
-
   {path : 'applicant' ,
     canActivate: [AdminGuard],
      component : ApplicantComponent

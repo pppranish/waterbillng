@@ -5,22 +5,22 @@
         <ul class="nav nav-tabs flex-nowrap" role="tablist">
           <li role="presentation" class="nav-item">
             <button (click)="goToStep(1)" [class.active]="currentStep === 1" class="nav-link">
-              <i class="fas fa-user-edit text-primary"></i>
+              <fa-icon [icon]="faUserPen"></fa-icon>
             </button>
           </li>
           <li role="presentation" class="nav-item">
             <button (click)="goToStep(2)" [class.active]="currentStep === 2" class="nav-link">
-              <i class="fas fa-faucet text-success"></i>
+              <fa-icon [icon]="faFaucet"></fa-icon>
             </button>
           </li>
           <li role="presentation" class="nav-item">
             <button (click)="goToStep(3)" [class.active]="currentStep === 3" class="nav-link">
-              <i class="fas fa-file-upload text-warning"></i>
+              <fa-icon [icon]="faFileArrowUp"></fa-icon>
             </button>
           </li>
           <li role="presentation" class="nav-item">
             <button (click)="goToStep(4)" [class.active]="currentStep === 4" class="nav-link">
-              <i class="fas fa-stamp text-info"></i>
+              <fa-icon [icon]="faStamp"></fa-icon>
             </button>
           </li>
         </ul>

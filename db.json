@@ -5,48 +5,16 @@
       "email": "Pranish_202000069@smit.smu.edu.in",
       "mobilenumber": "8972287049",
       "password": "12345678",
-      "role": "Consumer",
+      "role": "Applicant",
+      "id": 1
+    },
+    {
+      "name": "pranish pradhan",
+      "email": "Pranish_202000069@gmail.com",
+      "mobilenumber": "8972287049",
+      "password": "12345678",
+      "role": "Admin",
       "id": 2
-    },
-    {
-      "name": "pranish",
-      "email": "Pranish_202000069@smit.smu.edu.in",
-      "mobilenumber": "8972287049",
-      "password": "12345678",
-      "role": "Consumer",
-      "id": 3
-    },
-    {
-      "name": "pranish pradhan",
-      "email": "Pranish_202000069@smit.com",
-      "mobilenumber": "8972287049",
-      "password": "12345678",
-      "role": "Applicant",
-      "id": 4
-    },
-    {
-      "name": "pranish pradhan",
-      "email": "Pranish_202000069@smit.smu.com",
-      "mobilenumber": "7318718647",
-      "password": "123456789",
-      "role": "Applicant",
-      "id": 5
-    },
-    {
-      "name": "pranish pradhan",
-      "email": "admin@1.com",
-      "mobilenumber": "9365798266",
-      "password": "12345678910",
-      "role": "Admin",
-      "id": 6
-    },
-    {
-      "name": "pranish",
-      "email": "admin@12.com",
-      "mobilenumber": "8972287049",
-      "password": "12345678910",
-      "role": "Admin",
-      "id": 7
     }
   ]
 }

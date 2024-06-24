@@ -79,13 +79,13 @@
         </li>
 
         <li class="nav-item has-treeview" *ngIf="canAccessWater">
-          <a routerLink="water-bill" class="nav-link">
+          <a routerLink="/bill" class="nav-link">
             <i class="fas fa-rupee-sign text-info"></i>
             <p>Water Bill<i class="right fas fa-angle-left"></i></p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a routerLink="/generate-bill-tap-based" class="nav-link">
+              <a routerLink="water-bill" class="nav-link">
                 <i class="fas fa-file-invoice"></i>
                 <p>Generate Bill (Tap-based)</p>
               </a>

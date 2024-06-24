@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-    private baseUrl = 'assets/api'
+    private baseUrl = 'http://localhost:5002';
 
   constructor(private http: HttpClient) { }
 
@@ -50,10 +50,33 @@ export class ApiService {
 
   getPreviousWaterConsumption(consumerNo: string): Observable<any> {
     const url = `http://localhost:5002/prev-water-consumption?consumer_no=${consumerNo}`;
+    console.log('Request URL:', url);  
     return this.http.get<any>(url);
   }
 
   processWaterConsumption(data: any): Observable<any> {
     return this.http.post('/api/meter/process-water-consumption', data);
   }
+
+
+  generateBill(data: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/water_consumer_bills`, data);
+  }
+
+  updateWaterConsumptionDetails(id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/water_consumption_details/${id}`, data);
+  }
+
+  getPendingBillFromMonthYear(): Observable<any> {
+    const query = 'water_consumption_details?bill_no=null&_sort=year,month_no&_order=asc,asc&_limit=1';
+    console.log(`${this.baseUrl}/${query}`); 
+     return this.http.get<any[]>(`${this.baseUrl}/${query}`);
+
+  }
+
+  getPendingBillToMonthYear(): Observable<any> {
+    const query = 'water_consumption_details?bill_no=null&_sort=year,month_no&_order=desc,desc&_limit=1';
+    return this.http.get<any[]>(`${this.baseUrl}/${query}`);
+  }
 }
+

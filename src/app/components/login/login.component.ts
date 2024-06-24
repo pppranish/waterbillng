@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,7 +20,9 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+
   }
+   currentUser = this.authService.currentUserValue; 
 
   onClickBeforeSubmit() {
     this.clicked = true;
@@ -33,7 +36,15 @@ export class LoginComponent {
           this.isLoggedIn = true;
           this.username = response.username;
           console.log('Login successful:', response);
+         if(this.currentUser.role === 'Admin'){
           this.router.navigate(['/admin']);
+         }
+         else if(this.currentUser.role === 'Applicant'){
+          this.router.navigate(['/applicant']);
+         }
+         else if(this.currentUser.role === 'Consumer'){
+          this.router.navigate(['/consumer']);
+         }
         } else {
           this.isLoggedIn = false;
           console.error('Login failed:', response.message);

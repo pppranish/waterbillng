@@ -38,21 +38,21 @@
         <form [formGroup]="meterReadingForm" (ngSubmit)="onMeterReadingSubmit()">
           <div class="form-row">
             <div class="col-md-4 mb-3">
-              <label for="consumer_no">Consumer Number: </label><span>{{ consumerData[0].consumer_no }}</span>
+              <label for="consumer_no">Consumer Number: </label><span>{{ consumerData.consumer_no }}</span>
               <input type="hidden" formControlName="consumer_no">
               <input type="hidden" formControlName="consumer_id">
             </div>
             <div class="col-md-4 mb-3">
-              <label for="consumer_name">Consumer Name: </label><span>{{ consumerData[0].consumer_name }}</span>
+              <label for="consumer_name">Consumer Name: </label><span>{{ consumerData.consumer_name }}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="consumer_address">Consumer Address: </label><span>{{ consumerData[0].street_name }}</span>
+              <label for="consumer_address">Consumer Address: </label><span>{{ consumerData.street_name }}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="meter_no">Meter Number: </label><span>{{ consumerData[0].water_meter_id}}</span>
+              <label for="meter_no">Meter Number: </label><span>{{ consumerData.water_meter_id}}</span>
             </div>
             <div class="col-md-4 mb-3">
-              <label for="last_recorded">Last Recorded: </label><span>{{ consumerData[0].month_name
+              <label for="last_recorded">Last Recorded: </label><span>{{ consumerData.month_name
                 }}</span>
             </div>
             <div class="col-md-4 mb-3">

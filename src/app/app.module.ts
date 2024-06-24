@@ -43,6 +43,7 @@ import { MeterReadingComponent } from './components/admin/meter-reading/meter-re
 import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
 
 import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
+import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
 
 
 
@@ -79,7 +80,8 @@ import { CreateUsersComponent } from './components/admin/workflow-users/create-u
         MeterReadingComponent,
         WorkflowUsersComponent,
    
-        CreateUsersComponent
+        CreateUsersComponent,
+            WaterBillComponent
    
        
    

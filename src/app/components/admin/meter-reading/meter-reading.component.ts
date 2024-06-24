@@ -59,22 +59,23 @@ export class MeterReadingComponent implements OnInit {
 
     onSearchSubmit(): void {
       if (this.searchForm.valid) {
-        const consumerNo = this.searchForm.get('consumer_no')?.value;  
-
-        console.log('Consumer Number:', consumerNo);  
-    
+        const consumerNo = this.searchForm.get('consumer_no')?.value;
+        console.log('Consumer Number:', consumerNo);  // Log the consumer number for debugging
+  
         this.apiService.getPreviousWaterConsumption(consumerNo).subscribe(
           data => {
-            console.log('API Response:', data); 
-    
-            if (data) {
-              this.consumerData = data;
+            console.log('API Response:', data);  // Log the API response for debugging
+  
+            if (data && data.length > 0) {  // Check if data is an array and has at least one element
+              this.consumerData = data[0];  // Assuming the API returns an array
+              console.log('Consumer Data:', this.consumerData);
               this.isConsumerFound = true;
               this.meterReadingForm.patchValue({
-                consumer_no: data.consumer_no,
-                consumer_id: data.consumer_id,
-                previous_month_meter_reading: data.prev_meter_reading
+                consumer_no: this.consumerData.consumer_no,
+                consumer_id: this.consumerData.consumer_id,
+                previous_month_meter_reading: this.consumerData.previous_month_meter_reading
               });
+              console.log('Meter Reading Form Values:', this.meterReadingForm.value);
             } else {
               this.isConsumerFound = false;
               console.error('No data found for the given consumer number.');
@@ -87,8 +88,7 @@ export class MeterReadingComponent implements OnInit {
         );
       }
     }
-    
-  onMeterReadingSubmit(): void {
+     onMeterReadingSubmit(): void {
     if (this.meterReadingForm.valid) {
       this.apiService.processWaterConsumption(this.meterReadingForm.value).subscribe(() => {
         alert('Record inserted successfully.');

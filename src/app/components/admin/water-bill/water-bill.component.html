@@ -1,0 +1,13 @@
+<p>water-bill works!</p>
+<div class="container">
+    <h2>Water Bill Generation</h2>
+    <div *ngIf="fromMonthYear && toMonthYear">
+      <p><strong>From:</strong> {{ fromMonthYear}}</p>
+      <p><strong>To:</strong> {{ toMonthYear }}</p>
+      <button class="btn btn-primary" (click)="generateBill()">Generate Bill</button>
+    </div>
+    <div *ngIf="!fromMonthYear || !toMonthYear">
+      <p>Loading pending bills...</p>
+    </div>
+  </div>
+  

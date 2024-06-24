@@ -31,7 +31,7 @@ export class AuthService {
       map(users => {
         const user = users.find(u => u.email === email && u.password === password);
         if (user) {
-          // Store user details in local storage and update currentUserSubject
+     
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
           return { success: true, username: user.name,  role: user.role };

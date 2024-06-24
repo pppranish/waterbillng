@@ -19,14 +19,15 @@ export class ApiService {
 
  
   getConsumersByZone(zoneId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/db.json`).pipe(
+    return this.http.get<any[]>( "  http://localhost:5002/consumers").pipe(
       map(response => {
         if (!Array.isArray(response)) {
           console.error('Response is not an array', response);
           throw new Error('Response is not an array');
         }
+        console.log(response)
         console.log('Filtering consumers with zone_id:', zoneId);
-        const filteredConsumers = response.filter(consumer => consumer.zone_id === zoneId);
+        const filteredConsumers = response.filter(consumer => consumer.zone_id == zoneId);
         console.log('Filtered Consumers:', filteredConsumers);
         return filteredConsumers;
       }),
@@ -47,8 +48,9 @@ export class ApiService {
     return throwError(errorMessage);
   }
 
-  getPreviousWaterConsumption(data: any): Observable<any> {
-    return this.http.post('/api/meter/previous-water-consumption', data);
+  getPreviousWaterConsumption(consumerNo: string): Observable<any> {
+    const url = `http://localhost:5002/prev-water-consumption?consumer_no=${consumerNo}`;
+    return this.http.get<any>(url);
   }
 
   processWaterConsumption(data: any): Observable<any> {

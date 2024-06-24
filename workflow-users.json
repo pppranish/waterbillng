@@ -1,0 +1,28 @@
+{
+  "workflow-users": [
+    {
+      "salutation": "mr .",
+      "gender": "male ",
+      "first_name": "Pranish",
+      "middle_name": "",
+      "last_name": "pradhan",
+      "designation": "Supervisor",
+      "division": "HR",
+      "email": "Pranish_202000069@smit.smu.edu.in",
+      "contact_number": "8972287049",
+      "password": "1234567",
+      "password_confirmation": "1234567",
+      "roles": [
+        "w-co"
+      ],
+      "permissions": [
+        "Create"
+      ],
+      "workflows": [
+        "Step 1"
+      ],
+      "id": 1
+    }
+  
+  ]
+}

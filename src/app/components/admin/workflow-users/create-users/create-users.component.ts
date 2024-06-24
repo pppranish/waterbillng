@@ -1,15 +1,17 @@
-import { Component, OnInit  } from '@angular/core';
-import { WorkflowUsersService } from 'src/app/services/workflow-user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 
+
+import { Component, OnInit } from '@angular/core';
+import { WorkflowUsersService } from 'src/app/services/workflow-user.service';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms'; 
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.css']
+  selector: 'app-create-users',
+  templateUrl: './create-users.component.html',
+  styleUrls: ['./create-users.component.css']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUsersComponent implements OnInit {
   userForm!: FormGroup;
+  errorMessage!: string;
 
   user: any = {
     salutation: '',
@@ -41,7 +43,7 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-  
+    // Sample data for designations, divisions, roles, permissions, and workflows
     this.designations = [
       { id: 1, name: 'Manager' },
       { id: 2, name: 'Supervisor' },
@@ -82,20 +84,37 @@ export class CreateUserComponent implements OnInit {
       division: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       contact_number: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       password_confirmation: ['', Validators.required],
-      roles: [[]],
-      permissions: [[]],
-      workflows: [[]]
-    });
+      roles: [[], Validators.required],
+      permissions: [[], Validators.required],
+      workflows: [[], Validators.required]
+    }, { validator: this.passwordMatchValidator });
   }
 
-  saveUser(): void {
+  passwordMatchValidator(formGroup: FormGroup): null | { passwordMismatch: boolean } {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('password_confirmation')?.value;
+    return password === confirmPassword ? null : { passwordMismatch: true };
+  }
+
+  saveUser() {
     if (this.userForm.invalid) {
-      console.log("invalid form");
+      this.workflowUsersService.createUser(this.userForm.value).subscribe({
+        next: (response) => {
+          console.log('User created successfully', response);
+        
+        },
+        error: (error) => {
+          console.error('Error creating user', error);
+      
+          this.errorMessage = 'Failed to create user: ' + (error.message || error.statusText || 'Unknown error');
+        }
+      });
+      return;
     }
 
-    console.log('User form submitted:', this.userForm.value);
-
   }
-}
+  
+  }
+

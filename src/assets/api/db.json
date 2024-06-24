@@ -1,12 +1,63 @@
 {
   "zones": [
-    { "id": 1, "name": "Zone 1" },
-    { "id": 2, "name": "Zone 2" },
-    { "id": 3, "name": "Zone 3" }
+    {
+      "id": 1,
+      "name": "Zone 1"
+    },
+    {
+      "id": 2,
+      "name": "Zone 2"
+    },
+    {
+      "id": 3,
+      "name": "Zone 3"
+    }
   ],
   "consumers": [
-    { "id": 1, "consumer_no": "123", "zone_id": 1 },
-    { "id": 2, "consumer_no": "456", "zone_id": 1 },
-    { "id": 3, "consumer_no": "789", "zone_id": 2 }
+    {
+      "id": 1,
+      "consumer_no": "123",
+      "zone_id": 1
+    },
+    {
+      "id": 2,
+      "consumer_no": "456",
+      "zone_id": 1
+    },
+    {
+      "id": 3,
+      "consumer_no": "789",
+      "zone_id": 2
+    }
+  ],
+  "prev-water-consumption": [
+    {
+      "id": 1,
+      "consumer_no": "123",
+      "consumer_name": "John Doe",
+      "house_name": "House 1",
+      "flat_no": "101",
+      "street_name": "Main Street",
+      "lgd_name": "City",
+      "water_meter_id": "W123",
+      "previous_month_meter_reading": 100,
+      "month_no": 6,
+      "month_name": "June",
+      "year": 2024
+    },
+    {
+      "id": 2,
+      "consumer_no": "456",
+      "consumer_name": "Jane Smith",
+      "house_name": "House 2",
+      "flat_no": "202",
+      "street_name": "Park Avenue",
+      "lgd_name": "Town",
+      "water_meter_id": "W456",
+      "previous_month_meter_reading": 150,
+      "month_no": 6,
+      "month_name": "June",
+      "year": 2024
+    }
   ]
 }

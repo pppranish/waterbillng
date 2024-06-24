@@ -1,0 +1,126 @@
+<form [formGroup]="userForm" (ngSubmit)="saveUser()" class="form-container">
+    <div class="form-group">
+      <label for="salutation">Salutation</label>
+      <input id="salutation" formControlName="salutation" class="form-control">
+      <div *ngIf="userForm.get('salutation')?.invalid && userForm.get('salutation')?.touched" class="error-message">
+        Salutation is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <input id="gender" formControlName="gender" class="form-control">
+      <div *ngIf="userForm.get('gender')?.invalid && userForm.get('gender')?.touched" class="error-message">
+        Gender is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input id="first_name" formControlName="first_name" class="form-control">
+      <div *ngIf="userForm.get('first_name')?.invalid && userForm.get('first_name')?.touched" class="error-message">
+        First name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="middle_name">Middle Name</label>
+      <input id="middle_name" formControlName="middle_name" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input id="last_name" formControlName="last_name" class="form-control">
+      <div *ngIf="userForm.get('last_name')?.invalid && userForm.get('last_name')?.touched" class="error-message">
+        Last name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <select id="designation" formControlName="designation" class="form-control">
+        <option *ngFor="let designation of designations" [value]="designation.name">{{designation.name}}</option>
+      </select>
+      <div *ngIf="userForm.get('designation')?.invalid && userForm.get('designation')?.touched" class="error-message">
+        Designation is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="division">Division</label>
+      <select id="division" formControlName="division" class="form-control">
+        <option *ngFor="let division of divisions" [value]="division.name">{{division.name}}</option>
+      </select>
+      <div *ngIf="userForm.get('division')?.invalid && userForm.get('division')?.touched" class="error-message">
+        Division is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" class="form-control">
+      <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error-message">
+        Valid email is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="contact_number">Contact Number</label>
+      <input id="contact_number" formControlName="contact_number" class="form-control">
+      <div *ngIf="userForm.get('contact_number')?.invalid && userForm.get('contact_number')?.touched" class="error-message">
+        Contact number is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" class="form-control">
+      <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error-message">
+        Password is required and must be at least 6 characters long.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="password_confirmation">Confirm Password</label>
+      <input id="password_confirmation" type="password" formControlName="password_confirmation" class="form-control">
+      <div *ngIf="userForm.get('password_confirmation')?.invalid && userForm.get('password_confirmation')?.touched" class="error-message">
+        Password confirmation is required.
+      </div>
+      <div *ngIf="userForm.errors?.['passwordMismatch'] && userForm.get('password_confirmation')?.touched" class="error-message">
+        Passwords do not match.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="roles">Roles</label>
+      <select id="roles" formControlName="roles" class="form-control" multiple>
+        <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+      </select>
+      <div *ngIf="userForm.get('roles')?.invalid && userForm.get('roles')?.touched" class="error-message">
+        At least one role is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="permissions">Permissions</label>
+      <select id="permissions" formControlName="permissions" class="form-control" multiple>
+        <option *ngFor="let permission of permissions" [value]="permission.name">{{permission.name}}</option>
+      </select>
+      <div *ngIf="userForm.get('permissions')?.invalid && userForm.get('permissions')?.touched" class="error-message">
+        At least one permission is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="workflows">Workflows</label>
+      <select id="workflows" formControlName="workflows" class="form-control" multiple>
+        <option *ngFor="let workflow of workflows" [value]="workflow.step">{{workflow.step}}</option>
+      </select>
+      <div *ngIf="userForm.get('workflows')?.invalid && userForm.get('workflows')?.touched" class="error-message">
+        At least one workflow is required.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Save User</button>
+  </form>
+    

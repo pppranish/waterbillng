@@ -18,13 +18,14 @@ export class MeterReadingComponent implements OnInit {
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.searchForm = this.fb.group({
       billing_zone: ['', Validators.required],
-      consumer_no: ['', Validators.required]
+      consumer_no: ['', Validators.required],
+      previous_month_meter_reading: ['', Validators.required],
     });
 
     this.meterReadingForm = this.fb.group({
       consumer_no: ['', Validators.required],
       consumer_id: ['', Validators.required],
-      previous_month_meter_reading: ['', Validators.required],
+      
       month: ['', Validators.required],
       year: ['', Validators.required],
       current_month_meter_reading: ['', Validators.required]

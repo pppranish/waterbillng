@@ -41,10 +41,6 @@ const routes: Routes = [
       },
     ]
   },
-
-
-
-
   {path : 'applicant' ,
     canActivate: [AdminGuard],
      component : ApplicantComponent

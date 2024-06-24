@@ -33,7 +33,10 @@ export class LoginComponent {
           this.isLoggedIn = true;
           this.username = response.username;
           console.log('Login successful:', response);
-          this.router.navigate(['/admin']);
+          if(response.role=='Admin')
+            this.router.navigate(['/admin']);
+          if(response.role=='Applicant')
+              this.router.navigate(['/applicant']);
         } else {
           this.isLoggedIn = false;
           console.error('Login failed:', response.message);

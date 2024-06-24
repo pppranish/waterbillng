@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {  HttpParams } from '@angular/common/http';
+
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
@@ -7,12 +9,12 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-    private baseUrl = 'http://localhost:5002';
+    private baseUrl = 'assets/api';
 
   constructor(private http: HttpClient) { }
 
   getBillingZones(): Observable<any[]> {
-    return this.http.get<any>(`${this.baseUrl}/db.json`).pipe(
+    return this.http.get<any>( `${this.baseUrl}/db.json`).pipe(
       map(response => response.zones)
     );
   }
@@ -67,16 +69,14 @@ export class ApiService {
     return this.http.put<any>(`${this.baseUrl}/water_consumption_details/${id}`, data);
   }
 
-  getPendingBillFromMonthYear(): Observable<any> {
-    const query = 'water_consumption_details?bill_no=null&_sort=year,month_no&_order=asc,asc&_limit=1';
-    console.log(`${this.baseUrl}/${query}`); 
-     return this.http.get<any[]>(`${this.baseUrl}/${query}`);
-
+  getPendingBillFromMonthYear(): Observable<any[]> {
+    const url =   'http://localhost:5002/water_consumption_details';
+    console.log('Request URL:', url);
+    return this.http.get<any[]>(url);
   }
 
-  getPendingBillToMonthYear(): Observable<any> {
-    const query = 'water_consumption_details?bill_no=null&_sort=year,month_no&_order=desc,desc&_limit=1';
-    return this.http.get<any[]>(`${this.baseUrl}/${query}`);
+  generateBillsTapBased(data: any): Observable<any> {
+    return this.http.post<any>('  http://localhost:5002/water_consumer_bills', data);
   }
 }
 

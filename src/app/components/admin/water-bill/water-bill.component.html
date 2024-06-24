@@ -2,8 +2,8 @@
 <div class="container">
     <h2>Water Bill Generation</h2>
     <div *ngIf="fromMonthYear && toMonthYear">
-      <p><strong>From:</strong> {{ fromMonthYear}}</p>
-      <p><strong>To:</strong> {{ toMonthYear }}</p>
+      <p><strong>From:</strong> {{ fromMonthYear.month_name}}</p>
+      <p><strong>To:</strong> {{ toMonthYear.month_name }}</p>
       <button class="btn btn-primary" (click)="generateBill()">Generate Bill</button>
     </div>
     <div *ngIf="!fromMonthYear || !toMonthYear">

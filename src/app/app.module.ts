@@ -44,6 +44,7 @@ import { WorkflowUsersComponent } from './components/admin/workflow-users/workfl
 
 import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
+import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 
 
 
@@ -81,7 +82,8 @@ import { WaterBillComponent } from './components/admin/water-bill/water-bill.com
         WorkflowUsersComponent,
    
         CreateUsersComponent,
-            WaterBillComponent
+            WaterBillComponent,
+            PrintBillComponent
    
        
    

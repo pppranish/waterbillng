@@ -60,56 +60,23 @@
       "year": 2024
     }
   ],
-  "water_consumption_details": [
-    {
-      "id": 1,
-      "consumer_id": 1,
-      "consumer_no": "C001",
-      "month_no": 1,
-      "month_name": "January",
-      "year": 2023,
-      "no_of_taps": 1,
-      "previous_month_meter_reading": 0,
-      "current_month_meter_reading": 100,
-      "current_rate_of_charge": 10,
-      "additional_rate_of_charge": 5,
-      "bill_no": null
-    },
-    {
-      "id": 2,
-      "consumer_id": 2,
-      "consumer_no": "C002",
-      "month_no": 2,
-      "month_name": "February",
-      "year": 2023,
-      "no_of_taps": 1,
-      "previous_month_meter_reading": 0,
-      "current_month_meter_reading": 110,
-      "current_rate_of_charge": 12,
-      "additional_rate_of_charge": 6,
-      "bill_no": "C002/2-2/2023"
-    }
+  "water_consumption_details": [{
+    "id": 1,
+    "consumer_id": 1,
+    "consumer_no": "C001",
+    "month_no": 1,
+    "month_name": "January",
+    "year": 2023,
+    "no_of_taps": 1,
+    "previous_month_meter_reading": 0,
+    "current_month_meter_reading": 100,
+    "current_rate_of_charge": 10,
+    "additional_rate_of_charge": 5,
+    "bill_no": null
+  }
+ 
   ],
   "water_consumer_bills": [
-    {
-      "consumer_id": 1,
-      "consumer_no": "C001",
-      "billing_from_month_no": 1,
-      "billing_to_month_no": 1,
-      "billing_from_month_name": "January",
-      "billing_to_month_name": "January",
-      "billing_for_month_count": 1,
-      "billing_year": 2023,
-      "arrears": 0,
-      "current_month_charge": 1000,
-      "water_meter_charge": 90,
-      "payment_status": true,
-      "created_by": "Admin",
-      "created_at": "2024-06-24T14:19:04.129Z",
-      "updated_at": "2024-06-24T14:19:04.129Z",
-      "from_date": "2023-01-01",
-      "to_date": "2023-01-01",
-      "id": 1
-    }
+    
   ]
 }

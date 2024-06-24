@@ -1,0 +1,76 @@
+<!-- print-bill.component.html -->
+
+<div class="card">
+    <div id="qz-alert" style="position: fixed; width: 60%; margin: 0 4% 0 36%; z-index: 900;"></div>
+    <div id="qz-pin" style="position: fixed; width: 30%; margin: 0 66% 0 4%; z-index: 900;"></div>
+    <div class="card-header bg-info">
+      For Months:
+    </div>
+    <div class="card-body">
+      <form id="print_bill_form" (ngSubmit)="onSubmit()" #printBillForm="ngForm">
+        <div class="form-row">
+          <div class="col-md-3 mb-2">
+            <label for="billing_zone">Zone</label>
+            <div class="input-group">
+              <select name="billing_zone" class="form-control" id="billing_zone"  (change)="onBillingZoneChange()" required [(ngModel)]="formData.billing_zone">
+                <option value="" disabled selected>--Select--</option>
+                <option *ngFor="let item of billingZones" [value]="item.id">{{ item.name }}</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a zone
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <label for="water_meter_installed">Type of Evaluation:</label>
+            <div class="input-group">
+              <select name="water_meter_installed" class="form-control" id="water_meter_installed" required [(ngModel)]="formData.water_meter_installed">
+                <option value="0">Tap-based</option>
+                <option value="1">Meter-based</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select Evaluation Type.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <label for="consumer_no">Consumer No:</label>
+            <div class="input-group">
+              <select name="consumer_no" class="consumer-no-select2 form-control" id="consumer-no" required [(ngModel)]="formData.consumer_no">
+                <option value="" disabled selected>Select Consumer No...</option>
+                <option *ngFor="let consumer of consumers" [value]="consumer.consumer_no">{{ consumer.consumer_no }}</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select Consumer No.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <label for="sl_no">From Sl. No.:</label>
+            <div class="input-group">
+              <input type="number" class="form-control" name="sl_no" id="sl_no" [(ngModel)]="formData.sl_no">
+              <div class="invalid-feedback">
+                Please provide Sl. No.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1 mb-1">
+            <label>&nbsp</label>
+            <input id="print_button" class="form-control btn btn-primary" type="button" (click)="printBill()" value="Print">
+          </div>
+          <div class="col-md-1 mb-1">
+            <label>&nbsp</label>
+            <button id="submit_button" class="form-control btn btn-primary" type="submit">Preview</button>
+          </div>
+          <div class="col-md-12" id="loader_div" style="display: none;">
+            <div class="spinner-grow text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <!-- Add other spinner-grow elements -->
+          </div>
+        </div>
+      </form>
+      <div class="row" id="download_link"></div>
+    </div>
+  </div>
+  

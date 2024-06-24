@@ -16,6 +16,7 @@ import { MeterReadingComponent } from './components/admin/meter-reading/meter-re
 import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
 import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
+import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'water-consumer-list', component: WaterConsumerListComponent },
       { path: 'meter-reading', component: MeterReadingComponent },
       {path :"water-bill" , component : WaterBillComponent},
+     
       { 
         path: 'workflow-users',
         canActivate: [AdminGuard],
@@ -41,6 +43,7 @@ const routes: Routes = [
           { path: 'create-user', component: CreateUsersComponent },
         ]
       },
+      {path : "print-bill" , component : PrintBillComponent},
     ]
   },
 

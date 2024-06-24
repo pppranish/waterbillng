@@ -90,11 +90,11 @@ interface MonthYear {
     this.waterBillService.generateBillsTapBased(data).subscribe(
       response => {
         console.log('Bill generated successfully:', response);
-        // Handle success response here, maybe update the UI or reset form
+       
       },
       error => {
         console.error('Error generating bill:', error);
-        // Handle error response here
+       
       }
     );
   }

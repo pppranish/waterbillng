@@ -78,5 +78,17 @@ export class ApiService {
   generateBillsTapBased(data: any): Observable<any> {
     return this.http.post<any>('  http://localhost:5002/water_consumer_bills', data);
   }
+
+  searchBills(formData: any): Observable<any[]> {
+    // Example of search endpoint, adjust as per your JSON Server setup
+    const params = `billing_from_month_name=${formData.billing_from_month_name}&billing_to_month_name=${formData.billing_to_month_name}`;
+    return this.http.get<any[]>(`${this.baseUrl}/bills?${params}`);
+  }
+
+  payBill(billId: number): Observable<any> {
+    // Example of pay endpoint, adjust as per your JSON Server setup
+    return this.http.put<any>(`${this.baseUrl}/bills/${billId}`, { paid: true });
+  }
 }
+
 

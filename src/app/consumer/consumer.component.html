@@ -1,0 +1,118 @@
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row">
+            <div class="alert alert-info alert-dismissible col-md-12" role="alert">
+                <strong><i class="fas fa-info-circle"></i> Information!</strong>
+                <marquee>
+                    <p style="font-family: Impact; font-size: 15pt">
+                        This site is dedicated for the service of common citizens of Sikkim, to pay bills for Water Supply
+                        and Sewerage Connection taking from Public Health & Engineering Department Government of Sikkim.
+                        Presently citizens can pay dues only for Gangtok region.
+                    </p>
+                </marquee>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <!-- Left card content -->
+                        <div class="card col-12">
+                            <div class="card-header bg-secondary">
+                                <i class="fas fa-cogs"></i> Important Information
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group col-12">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> Quick payment water bill </p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> Quick payment water bill (advance payment) </p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> View Water bill payment history</p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> Quick payment sewerage bill </p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> Quick payment sewerage bill (advance payment) </p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#"> <!-- Replace with actual route -->
+                                            <p class="h6 text-info"> View sewerage Payment History</p>
+                                        </a>
+                                        <a href="#"> <span class="badge badge-primary badge-pill"><i class="fas fa-eye"></i></span></a>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div class="text-nowrap text-danger font-weight-bold" style="width: 8rem;">
+                                            Note:
+                                        </div>
+                                        <small class="form-text text-muted font-weight-bold"> If you do not find respective information against your Consumer ID, please contact concerned department</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h5 class="mb-0 mr-4 mt-2 bold">Sign in to your Account</h5>
+                        <i class="fas fa-2x fa-user-lock text-secondary"></i>
+                    </div>
+                    <form (ngSubmit)="signIn()" class="create-account" autocomplete="off">
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Email Address</h6>
+                            </label>
+                            <input type="email" class="form-control" name="email" [(ngModel)]="formData.email" required>
+                        </div>
+                        <div class="row px-3">
+                            <label class="mb-1">
+                                <h6 class="mb-0 text-sm">Password</h6>
+                            </label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="formData.password" required>
+                        </div>
+                        <div class="row px-3 mb-4">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input id="chk1" type="checkbox" class="custom-control-input">
+                                <label for="chk1" class="custom-control-label text-sm">Remember me</label>
+                            </div>
+                            <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+                        </div>
+                        <div class="input-group captcha">
+                            <img [src]="captchaImg" alt="captcha" *ngIf="captchaImg">
+                            <button type="button" class="btn btn-danger" (click)="reloadCaptcha()">↻</button>
+                        </div>
+                        <div class="input-group">
+                            <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha"
+                                [(ngModel)]="formData.captcha" required>
+                        </div>
+                        <div *ngIf="errorMessage" class="alert alert-danger mt-1 mb-1">{{ errorMessage }}</div>
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-sm btn-primary btn-signin">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

@@ -19,6 +19,7 @@ import { WaterBillComponent } from './components/admin/water-bill/water-bill.com
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { AppDashComponent } from './applicant-dashboard/app-dash/app-dash.component';
+import { ConsumerComponent } from './consumer/consumer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,14 +60,14 @@ const routes: Routes = [
     component : ApplicantComponent
  },
 
-  // {
-  //   path: 'consumer',
-  //   canActivate: [AdminGuard],
-  //   component: ConsumerComponent,
-  //   children: [
-  //     // your consumer child routes here
-  //   ]
-  // },
+  {
+    path: 'consumer',
+    canActivate: [AdminGuard],
+    component: ConsumerComponent,
+    children: [
+      // your consumer child routes here
+    ]
+  },
 ]
 
 @NgModule({

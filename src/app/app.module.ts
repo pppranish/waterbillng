@@ -47,6 +47,7 @@ import { WaterBillComponent } from './components/admin/water-bill/water-bill.com
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { AppDashComponent } from './applicant-dashboard/app-dash/app-dash.component';
+import { ConsumerComponent } from './consumer/consumer.component';
 
 
 
@@ -87,7 +88,8 @@ import { AppDashComponent } from './applicant-dashboard/app-dash/app-dash.compon
             WaterBillComponent,
             PrintBillComponent,
             ApplicantDashboardComponent,
-            AppDashComponent
+            AppDashComponent,
+            ConsumerComponent
    
        
    

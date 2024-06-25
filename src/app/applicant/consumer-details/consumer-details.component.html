@@ -1,189 +1,204 @@
 <div class="tab-content py-2">
     <div class="tab-pane active" role="tabpanel" id="step1">
-        <h4>Step 1 (Consumer Basic Details)</h4>
-        <form #step1Form="ngForm" (ngSubmit)="submitStep1()">
-            <input type="hidden" name="temp_consumer_id_step1" id="temp_consumer_id_step1" [(ngModel)]="formData.tempConsumerIdStep1">
-            <input type="hidden" name="temp_consumer_no_step1" id="temp_consumer_no_step1" [(ngModel)]="formData.tempConsumerNoStep1">
-            <input type="hidden" name="consumer_user_id_step1" id="consumer_user_id_step1" [(ngModel)]="formData.consumerUserIdStep1">
-            
-            <div class="form-group col-md-12">
-                <label for="father_name">Search Consumer</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="check_consumer" id="check_consumer_new" [(ngModel)]="formData.consumerType" value="new" checked>
-                                <label class="form-check-label" for="check_consumer_new">New Consumer</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input type="radio" name="check_consumer" id="check_consumer_existing" [(ngModel)]="formData.consumerType" value="existing">
-                                <label class="form-check-label" for="check_consumer_existing">Existing Consumer</label>
-                            </div>
-                        </div>
-                    </div>
-                    <select class="form-control consumer-no-select2" *ngIf="formData.consumerType === 'existing'" name="consumer_no" id="consumer_no" [(ngModel)]="formData.consumerNo">
-                        <option value="">-- Select --</option>
-                        <option *ngFor="let consumer of existingConsumers" [value]="consumer.id">{{ consumer.name }}</option>
-                    </select>
+      <h4>Step 1 (Consumer Basic Details)</h4>
+      <form [formGroup]="step1Form" (ngSubmit)="submitStep1()">
+        <!-- Hidden fields -->
+        <input type="hidden" formControlName="tempConsumerIdStep1">
+        <input type="hidden" formControlName="tempConsumerNoStep1">
+        <input type="hidden" formControlName="consumerUserIdStep1">
+  
+        <!-- Consumer Type -->
+        <div class="form-group col-md-12">
+          <label for="father_name">Search Consumer</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <div class="form-check form-check-inline">
+                  <input type="radio" formControlName="consumerType" id="check_consumer_new" value="new">
+                  <label class="form-check-label" for="check_consumer_new">New Consumer</label>
                 </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" formControlName="consumerType" id="check_consumer_existing" value="existing">
+                  <label class="form-check-label" for="check_consumer_existing">Existing Consumer</label>
+                </div>
+              </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="first_name">First Name</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required [(ngModel)]="formData.firstName">
+            <select class="form-control consumer-no-select2" formControlName="consumerNo" *ngIf="step1Form.get('consumerType')?.value === 'existing'">
+              <option value="">-- Select --</option>
+              <option *ngFor="let consumer of existingConsumers" [value]="consumer.id">{{ consumer.name }}</option>
+            </select>
+          </div>
+        </div>
+  
+        <!-- Basic Details -->
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" id="first_name" placeholder="First Name">
+            <div *ngIf="step1Form.get('firstName')?.invalid && (step1Form.get('firstName')?.dirty || step1Form.get('firstName')?.touched)" class="text-danger">First name is required.</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="middle_name">Middle Name</label>
+            <input type="text" class="form-control" formControlName="middleName" id="middle_name" placeholder="Middle Name">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" id="last_name" placeholder="Last Name">
+            <div *ngIf="step1Form.get('lastName')?.invalid && (step1Form.get('lastName')?.dirty || step1Form.get('lastName')?.touched)" class="text-danger">Last name is required.</div>
+          </div>
+        </div>
+  
+        <!-- Other Fields -->
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="gender">Gender</label>
+            <select class="form-control" formControlName="gender" id="gender">
+              <option value="">Choose...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div *ngIf="step1Form.get('gender')?.invalid && (step1Form.get('gender')?.dirty || step1Form.get('gender')?.touched)" class="text-danger">Gender is required.</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="aadhar_no">Aadhar No.</label>
+            <input type="text" class="form-control" formControlName="aadharNo" id="aadhar_no" placeholder="Aadhar No.">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="voter_id">Voter Id</label>
+            <input type="text" class="form-control" formControlName="voterId" id="voter_id" placeholder="Voter Id">
+          </div>
+        </div>
+  
+        <!-- Contact Information -->
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="contact_number">Mobile No.</label>
+            <input type="number" class="form-control" formControlName="contactNumber" id="contact_number" placeholder="Mobile No.">
+            <div *ngIf="step1Form.get('contactNumber')?.invalid && (step1Form.get('contactNumber')?.dirty || step1Form.get('contactNumber')?.touched)" class="text-danger">Contact number is required.</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="email">Email Id</label>
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+            <div *ngIf="step1Form.get('email')?.invalid && (step1Form.get('email')?.dirty || step1Form.get('email')?.touched)" class="text-danger">
+                <div *ngIf="step1Form.get('email')?.errors?.['required']">Email is required.</div>
+                <div *ngIf="step1Form.get('email')?.errors?.[''] && !step1Form.get('email')?.errors?.['required']">Please enter a valid email address.</div>
+              </div>
+              
+          </div>
+          <div class="form-group col-md-4">
+            <label for="father_name">Father's Name/ Husband's name</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <div class="form-check form-check-inline">
+                    <input type="radio" formControlName="relation" id="relation_father" value="S/o">
+                    <label class="form-check-label" for="relation_father">Father</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input type="radio" formControlName="relation" id="relation_husband" value="W/o">
+                    <label class="form-check-label" for="relation_husband">Husband</label>
+                  </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="middle_name">Middle Name</label>
-                    <input type="text" class="form-control" name="middle_name" id="middle_name" placeholder="Middle Name" [(ngModel)]="formData.middleName">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required [(ngModel)]="formData.lastName">
-                </div>
+              </div>
+              <input type="text" class="form-control" formControlName="relativeName" id="relative_name" placeholder="Relative Name">
+              <div *ngIf="step1Form.get('relativeName')?.invalid && (step1Form.get('relativeName')?.dirty || step1Form.get('relativeName')?.touched)" class="text-danger">Relative name is required.</div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender" class="form-control" required [(ngModel)]="formData.gender">
-                        <option value=''>Choose...</option>
-                        <option value='male'>Male</option>
-                        <option value='female'>Female</option>
-                        <option value='other'>Other</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="aadhar_no">Aadhar No.</label>
-                    <input type="text" class="form-control" name="aadhar_no" id="aadhar_no" placeholder="Aadhar No." [(ngModel)]="formData.aadharNo">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="voter_id">Voter Id</label>
-                    <input type="text" class="form-control" name="voter_id" id="voter_id" placeholder="Voter Id" [(ngModel)]="formData.voterId">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="contact_number">Mobile No.</label>
-                    <input type="number" class="form-control" name="contact_number" id="contact_number" placeholder="Mobile No." required [(ngModel)]="formData.contactNumber">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="email">Email Id</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required [(ngModel)]="formData.email">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="father_name">Father's Name/ Husband's name</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" name="relation" aria-label="Radio button for following text input" value="S/o" [(ngModel)]="formData.relation" checked required>
-                                    <label class="form-check-label" for="relation">Father</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" name="relation" aria-label="Radio button for following text input" value="W/o" [(ngModel)]="formData.relation" required>
-                                    <label class="form-check-label" for="relation">Husband</label>
-                                </div>
-                            </div>
-                        </div>
-                        <input type="text" name="relative_name" id="relative_name" class="form-control" aria-label="Text input with radio button" required [(ngModel)]="formData.relativeName">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Correct mailing address</label>
-                <textarea class="form-control" rows="3" name="address" id="address" required [(ngModel)]="formData.address"></textarea>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="tel">Tel</label>
-                    <input type="number" class="form-control" name="tel" id="tel" [(ngModel)]="formData.tel">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="pincode">Pin Code</label>
-                    <input type="text" class="form-control" name="pincode" id="pincode" min="6" max="6" [(ngModel)]="formData.pincode">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="house_name">Details address of premises / Location where connection is sought</label>
-                <input type="text" class="form-control" name="house_name" id="house_name" placeholder="House Name" [(ngModel)]="formData.houseName">
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="flat_no">Flat No.</label>
-                    <input type="text" class="form-control" name="flat_no" id="flat_no" [(ngModel)]="formData.flatNo">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="house_no">House No.</label>
-                    <input type="text" class="form-control" name="house_no" id="house_no" [(ngModel)]="formData.houseNo">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="street_name">Street Name/ Road Name</label>
-                    <input type="text" class="form-control" name="street_name" id="street_name" [(ngModel)]="formData.streetName">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="ward_id">Ward</label>
-                    <select name="ward_id" id="ward_id" class="form-control" [(ngModel)]="formData.wardId">
-                        <!-- Options here -->
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="lgd_name">Bazar Name/RMC</label>
-                    <input type="text" class="form-control" name="lgd_name" id="lgd_name" required [(ngModel)]="formData.lgdName">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" name="city" id="city" required [(ngModel)]="formData.city">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="connection_premises_pin_code">Pin Code</label>
-                    <input type="text" class="form-control" name="connection_premises_pin_code" id="connection_premises_pin_code" required [(ngModel)]="formData.connectionPremisesPinCode">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="lgd_type">Premises within</label>
-                    <select name="lgd_type" id="lgd_type" class="form-control" required [(ngModel)]="formData.lgdType">
-                        <option value=''>Choose...</option>
-                        <option value='GMC'>GMC</option>
-                        <option value='RMC'>RMC</option>
-                        <option value='Bazar'>Bazar</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="ownership">Ownership status</label>
-                    <select name="ownership" id="ownership" class="form-control" required [(ngModel)]="formData.ownership">
-                        <option value=''>Choose...</option>
-                        <option value='purcha holder'>Purcha holder</option>
-                        <option value='power of attorney'>Power of Attorney</option>
-                        <option value='mutation'>Mutation</option>
-                        <option value='allotment'>Allotment</option>
-                        <option value='court order'>Court order</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="is_bpl_category">Under BPL Category</label>
-                    <select name="is_bpl_category" id="is_bpl_category" class="form-control" required [(ngModel)]="formData.isBplCategory">
-                        <option value=''>Choose...</option>
-                        <option value='1'>Yes</option>
-                        <option value='0'>No</option>
-                    </select>
-                </div>
-            </div>
-            
-            <input type="submit" name="step1_button" id="step1_button" class="btn btn-primary next-step float-right" (click)="next()">
-        </form>
+          </div>
+        </div>
+  
+        <!-- Address Details -->
+        <div class="form-group">
+          <label for="address">Correct mailing address</label>
+          <textarea class="form-control" formControlName="address" id="address" rows="3"></textarea>
+          <div *ngIf="step1Form.get('address')?.invalid && (step1Form.get('address')?.dirty || step1Form.get('address')?.touched)" class="text-danger">Address is required.</div>
+        </div>
+  
+        <!-- Additional Details -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="tel">Tel</label>
+            <input type="number" class="form-control" formControlName="tel" id="tel">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="pincode">Pin Code</label>
+            <input type="text" class="form-control" formControlName="pincode" id="pincode" minlength="6" maxlength="6">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="house_name">Details address of premises / Location where connection is sought</label>
+          <input type="text" class="form-control" formControlName="houseName" id="house_name" placeholder="House Name">
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="flat_no">Flat No.</label>
+            <input type="text" class="form-control" formControlName="flatNo" id="flat_no">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="house_no">House No.</label>
+            <input type="text" class="form-control" formControlName="houseNo" id="house_no">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="street_name">Street Name</label>
+            <input type="text" class="form-control" formControlName="streetName" id="street_name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ward_id">Ward Id</label>
+            <input type="text" class="form-control" formControlName="wardId" id="ward_id">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="lgd_name">Lgd Name</label>
+            <input type="text" class="form-control" formControlName="lgdName" id="lgd_name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="city">City</label>
+            <input type="text" class="form-control" formControlName="city" id="city">
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="connection_premises_pin_code">Connection Premises Pin Code</label>
+            <input type="text" class="form-control" formControlName="connectionPremisesPinCode" id="connection_premises_pin_code">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lgd_type">Lgd Type</label>
+            <input type="text" class="form-control" formControlName="lgdType" id="lgd_type">
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="ownership">Ownership</label>
+          <select class="form-control" formControlName="ownership" id="ownership">
+            <option value="">Choose...</option>
+            <option value="self">Self</option>
+            <option value="tenant">Tenant</option>
+            <option value="others">Others</option>
+          </select>
+          <div *ngIf="step1Form.get('ownership')?.invalid && (step1Form.get('ownership')?.dirty || step1Form.get('ownership')?.touched)" class="text-danger">Ownership type is required.</div>
+        </div>
+  
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" formControlName="isBplCategory" id="is_bpl_category">
+          <label class="form-check-label" for="is_bpl_category">Check if you belong to BPL Category</label>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Next</button>
+  
+        <!-- Display form submission error -->
+        <div *ngIf="step1Form.invalid && (step1Form.dirty || step1Form.touched)" class="alert alert-danger mt-3">
+          Form is invalid. Please correct the errors and try again.
+        </div>
+      </form>
     </div>
-</div>
+  </div>
+  

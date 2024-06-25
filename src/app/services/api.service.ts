@@ -89,6 +89,10 @@ export class ApiService {
     // Example of pay endpoint, adjust as per your JSON Server setup
     return this.http.put<any>(`${this.baseUrl}/bills/${billId}`, { paid: true });
   }
+
+  submitApplicantDetails(consumerData: any): Observable<any> {
+    return this.http.post<any>('  http://localhost:5002/applicant', consumerData);
+  }
 }
 
 

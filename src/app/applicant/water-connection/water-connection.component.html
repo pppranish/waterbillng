@@ -1,7 +1,7 @@
 <div class="tab-pane" role="tabpanel" id="step2">
     <h4>Step 2 (Water Connection Details)</h4>
 
-    <form #step2Form="ngForm" (ngSubmit)="submitForm" class="form">
+    <form #step2Form="ngForm" (ngSubmit)="submitForm(step2Form)" class="form">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="has_sewerage_connection">Having Sewerage Connection</label>
@@ -12,7 +12,7 @@
                     <option value='0'>No</option>
                 </select>
             </div>
-            <div class="form-group col-md-6" *ngIf="formData.hasSewerageConnection == '1'">
+            <div class="form-group col-md-6" *ngIf="formData.hasSewerageConnection === '1'">
                 <label for="sewerage_connection_number">Sewerage Connection Number</label>
                 <input class="form-control" type="text" name="sewerage_connection_number"
                     id="sewerage_connection_number" placeholder="Sewerage Connection Number"
@@ -37,7 +37,7 @@
                     <option value='0'>No</option>
                 </select>
             </div>
-            <div class="form-group col-md-6" *ngIf="formData.otherWaterConnection == '1'">
+            <div class="form-group col-md-6" *ngIf="formData.otherWaterConnection === '1'">
                 <label for="other_water_connection_form">Give details from where other Connection is taken</label>
                 <input type="text" id="other_water_connection_form" name="other_water_connection_form"
                     class="form-control" [(ngModel)]="formData.otherWaterConnectionForm">
@@ -110,7 +110,7 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-4" *ngIf="formData.connectionPeriod == 'temporary'">
+            <div class="form-group col-md-4" *ngIf="formData.connectionPeriod === 'temporary'">
                 <label for="temp_connection_duration">If temporary, duration in months</label>
                 <input type="number" class="form-control" name="temp_connection_duration" id="temp_connection_duration"
                     [(ngModel)]="formData.tempConnectionDuration">
@@ -150,8 +150,9 @@
                 <button type="button" class="btn btn-outline-primary prev-step" (click)="previous()">Previous</button>
             </li>
             <li class="list-inline-item">
-                <button type="submit" id="step2_button" class="btn btn-primary next-step" (click)="next()">Save and Continue</button>
+                <button type="submit" id="step2_button" class="btn btn-primary next-step">Save and Continue</button>
             </li>
         </ul>
     </form>
 </div>
+

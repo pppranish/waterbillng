@@ -60,23 +60,109 @@
       "year": 2024
     }
   ],
-  "water_consumption_details": [{
-    "id": 1,
-    "consumer_id": 1,
-    "consumer_no": "C001",
-    "month_no": 1,
-    "month_name": "January",
-    "year": 2023,
-    "no_of_taps": 1,
-    "previous_month_meter_reading": 0,
-    "current_month_meter_reading": 100,
-    "current_rate_of_charge": 10,
-    "additional_rate_of_charge": 5,
-    "bill_no": null
-  }
- 
+  "water_consumption_details": [
+    {
+      "id": 1,
+      "consumer_id": 1,
+      "consumer_no": "C001",
+      "month_no": 1,
+      "month_name": "January",
+      "year": 2023,
+      "no_of_taps": 1,
+      "previous_month_meter_reading": 0,
+      "current_month_meter_reading": 100,
+      "current_rate_of_charge": 10,
+      "additional_rate_of_charge": 5,
+      "bill_no": null
+    }
   ],
-  "water_consumer_bills": [
-    
+  "water_consumer_bills": [],
+  "bills": [
+    {
+      "id": 1,
+      "bill_no": "001",
+      "billing_from_month_name": "January",
+      "billing_to_month_name": "February",
+      "arrears": 100,
+      "current_month_charge": 50,
+      "consumer_id": 1
+    },
+    {
+      "id": 2,
+      "bill_no": "002",
+      "billing_from_month_name": "February",
+      "billing_to_month_name": "March",
+      "arrears": 150,
+      "current_month_charge": 75,
+      "consumer_id": 2
+    },
+    {
+      "id": 3,
+      "bill_no": "003",
+      "billing_from_month_name": "March",
+      "billing_to_month_name": "April",
+      "arrears": 120,
+      "current_month_charge": 60,
+      "consumer_id": 3
+    }
+  ],
+  "applicant": [
+    {
+      "tempConsumerIdStep1": "",
+      "tempConsumerNoStep1": "",
+      "consumerUserIdStep1": "",
+      "consumerType": "new",
+      "consumerNo": "",
+      "firstName": "Pranish",
+      "middleName": "",
+      "lastName": "pradhan",
+      "gender": "female",
+      "aadharNo": "121432454354354",
+      "voterId": "65675",
+      "contactNumber": 8972287049,
+      "email": "Pranish_202000069@smit.smu.edu.in",
+      "relation": "S/o",
+      "relativeName": "Arjun kr Pradhan",
+      "address": "pea@gmail.com",
+      "tel": 3,
+      "pincode": "233232",
+      "houseName": "https://ljp3j8.csb.app/",
+      "flatNo": "56567",
+      "houseNo": "65567",
+      "streetName": "87ioyu",
+      "wardId": "hu",
+      "lgdName": "jh",
+      "city": "bnmb",
+      "connectionPremisesPinCode": "j,mnh,m",
+      "lgdType": "jgfg",
+      "ownership": "others",
+      "isBplCategory": ""
+    }
+  ],
+  "water-connection-details": [
+    {
+      "hasSewerageConnection": "0",
+      "sewerageConnectionNumber": "",
+      "otherWaterConnection": "0",
+      "otherWaterConnectionForm": "",
+      "waterRequiredFor": "DOMESTIC",
+      "waterConsumerCategory": "state government",
+      "typeOfPremises": "office",
+      "premisesDetail": "rcc",
+      "noOfStoreys": 2,
+      "connectionPeriod": "permanent",
+      "tempConnectionDuration": null,
+      "quantityOfWater": 2,
+      "noOfTaps": 3,
+      "noOfRooms": 3,
+      "noOfToilets": 3,
+      "noOfUsers": 3,
+      "id": 1
+    }
+  ],
+  "file-uploads": [
+    {
+      "id": 1
+    }
   ]
 }

@@ -25,11 +25,7 @@ export class AdminGuard implements CanActivate {
       return true;
     }
     if (currentUser && currentUser.role === 'Applicant') { 
-<<<<<<< HEAD
       return true;
-=======
-      return true; 
->>>>>>> 4ff5793e30aa11f7eab91881b9e2e527fb808c28
     }
 
    

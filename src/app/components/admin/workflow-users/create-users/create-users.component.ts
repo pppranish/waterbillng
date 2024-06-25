@@ -58,13 +58,13 @@ export class CreateUsersComponent implements OnInit {
       "w-co", "w-cc-desk1", "w-cc-desk2", "w-ae-mtc", "w-de-rev", 
       "w-ae-rev", "w-ldc-rev", "s-co", "s-cc-desk1", "s-cc-desk2", 
       "s-ae-mtc", "s-de-rev", "s-ae-rev", "s-ldc-rev", "w-ari-rev", 
-      "w-je-rev", "s-je-rev"
+      "w-je-rev", "s-je-rev", "super-admin", "applicant", "consumer"
     ];
     this.permissions = [
-      { id: 1, name: 'Create' },
-      { id: 2, name: 'Read' },
-      { id: 3, name: 'Update' },
-      { id: 4, name: 'Delete' }
+      { id: 1, name: 'can-access-water' },
+      { id: 2, name: 'can-access-sewage' },
+      { id: 3, name: 'can-create-workflow-user' },
+      { id: 4, name: 'can-process-application' }
     ];
     this.workflows = [
       { id: 1, step: 'Step 1' },

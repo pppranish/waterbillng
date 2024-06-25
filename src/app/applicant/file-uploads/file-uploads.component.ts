@@ -1,15 +1,13 @@
-import { Component  , Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
-
 
 @Component({
   selector: 'app-file-uploads',
   templateUrl: './file-uploads.component.html',
   styleUrls: ['./file-uploads.component.css']
 })
-export class FileUploadsComponent {
+export class FileUploadsComponent implements OnInit {
   @Output() nextStep = new EventEmitter<void>();
   @Output() previousStep = new EventEmitter<void>();
  
@@ -22,13 +20,13 @@ export class FileUploadsComponent {
       temp_consumer_id_step3: [''],
       temp_consumer_no_step3: [''],
       consumer_user_id_step3: [''],
-      buliding_plan: [''],
-      ownersip_certificate: [''],
-      pass_photo: [''],
-      photo_id: [''],
-      aadhar_card: [''],
-      voter_card: [''],
-      premises_photo: [''],
+      building_plan: [null],
+      ownership_certificate: [null],
+      pass_photo: [null],
+      photo_id: [null],
+      aadhar_card: [null],
+      voter_card: [null],
+      premises_photo: [null],
       bank_receipt_no_for_form: [''],
       bank_receipt_amount_for_form: ['25'], // Assuming default value for form fee
       bank_receipt_date_for_form: [''],
@@ -41,28 +39,40 @@ export class FileUploadsComponent {
       approved_zone_id: [''],
       billing_effective_form: ['']
     });
-
- 
   }
+
+  handleFileInput(event: any, controlName: string): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.formData.patchValue({
+        [controlName]: file
+      });
+    }
+  }
+
   previous() {
-    this.nextStep.emit();
-  }
-
-  next() {
     this.previousStep.emit();
   }
 
+  next() {
+    this.nextStep.emit();
+  }
+
   onSubmit(): void {
-    if (this.formData) { // Ensure formData is not null
+    if (this.formData.valid) { // Ensure formData is valid
+      const formValues = this.formData.value;
       const formData = new FormData();
-      Object.keys(this.formData.value).forEach(key => {
-        const value = this.formData.get(key)?.value;
-        if (value) {
-          formData.append(key, value);
+      
+      Object.keys(formValues).forEach(key => {
+        const value = formValues[key];
+        if (value instanceof File) {
+          formData.append(key, value, value.name); // Append files
+        } else {
+          formData.append(key, value); // Append other form values
         }
       });
 
-      this.http.post<any>('your-api-endpoint', formData).subscribe(
+      this.http.post<any>('http://localhost:5002/file-uploads', formData).subscribe(
         response => {
           console.log('File upload successful:', response);
           // Handle success scenario

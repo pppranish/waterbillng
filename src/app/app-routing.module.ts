@@ -9,14 +9,15 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuard } from './auth/admin.guard';
 import {inject} from '@angular/core';
 import { DasboardComponent } from './components/admin/dasboard/dasboard.component';
-import { ApplicantComponent } from './applicant/applicant.component';
-import { WaterConnectionComponent } from './applicant/water-connection/water-connection.component';
+import { ApplicantComponent } from './applicant-dashboard/applicant/applicant.component';
+import { WaterConnectionComponent } from './applicant-dashboard/applicant/water-connection/water-connection.component';
 import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
 import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
 import { WorkflowUsersComponent } from './components/admin/workflow-users/workflow-users.component';
 import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
+import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,10 +47,17 @@ const routes: Routes = [
       {path : "print-bill" , component : PrintBillComponent},
     ]
   },
-  {path : 'applicant' ,
-    canActivate: [AdminGuard],
-     component : ApplicantComponent
-  },
+
+  { path : 'applicant' , canActivate: [AdminGuard], component : ApplicantDashboardComponent,
+    children : [
+      {path : 'app' , component : ApplicantComponent},
+     
+    ]
+  } ,
+  {path : 'app' ,
+    component : ApplicantComponent
+ },
+
   // {
   //   path: 'consumer',
   //   canActivate: [AdminGuard],

@@ -31,12 +31,12 @@ import { DasboardComponent } from './components/admin/dasboard/dasboard.componen
 
 import { AuthService } from './services/auth.service';
 import { FeatureModule } from './feature/feature.module';
-import { ApplicantComponent } from './applicant/applicant.component';
-import { ConsumerDetailsComponent } from './applicant/consumer-details/consumer-details.component';
-import { WaterConnectionComponent } from './applicant/water-connection/water-connection.component';
-import { FileUploadsComponent } from './applicant/file-uploads/file-uploads.component';
-import { PreviewComponent } from './applicant/preview/preview.component';
-import { CompleteComponent } from './applicant/complete/complete.component';
+import { ApplicantComponent } from './applicant-dashboard/applicant/applicant.component';
+import { ConsumerDetailsComponent } from './applicant-dashboard/applicant/consumer-details/consumer-details.component';
+import { WaterConnectionComponent } from './applicant-dashboard/applicant/water-connection/water-connection.component';
+import { FileUploadsComponent } from './applicant-dashboard/applicant/file-uploads/file-uploads.component';
+import { PreviewComponent } from './applicant-dashboard/applicant/preview/preview.component';
+import { CompleteComponent } from './applicant-dashboard/applicant/complete/complete.component';
 import { TopnavComponent } from './components/admin/topnav/topnav.component';
 import { WaterConsumerListComponent } from './components/admin/water-consumer-list/water-consumer-list.component';
 import { MeterReadingComponent } from './components/admin/meter-reading/meter-reading.component';
@@ -45,6 +45,7 @@ import { WorkflowUsersComponent } from './components/admin/workflow-users/workfl
 import { CreateUsersComponent } from './components/admin/workflow-users/create-users/create-users.component';
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
+import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 
 
 
@@ -83,7 +84,8 @@ import { PrintBillComponent } from './components/admin/print-bill/print-bill.com
    
         CreateUsersComponent,
             WaterBillComponent,
-            PrintBillComponent
+            PrintBillComponent,
+            ApplicantDashboardComponent
    
        
    

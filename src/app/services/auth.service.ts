@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { map, switchMap } from 'rxjs/operators';
 
@@ -14,7 +15,7 @@ export class AuthService {
   
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient , private router: Router) {
     // Initialize the currentUserSubject with the value from localStorage or null
 
     const storedUser = localStorage.getItem('currentUser');
@@ -34,6 +35,15 @@ export class AuthService {
      
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
+          if(user.role === 'Admin'){
+            this.router.navigate(['/admin']); 
+          }
+          if(user.role === 'Consumer'){
+            this.router.navigate(['/consumer']); 
+          }
+          if(user.role === 'Applicant'){
+            this.router.navigate(['/Applicant']); 
+          }
           return { success: true, username: user.name,  role: user.role };
         } else {
           return { success: false, message: 'Invalid credentials' };

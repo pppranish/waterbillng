@@ -1,0 +1,174 @@
+/* Overall sidebar container */
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* Adjust width as needed */
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+  
+  /* Brand logo and text */
+  .brand-link {
+    display: block;
+    padding: 10px 15px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .brand-link:hover {
+    color: #ffffff; /* Hover color */
+  }
+  
+  .brand-image {
+    width: 50px; /* Adjust logo image size */
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .brand-text {
+    font-size: 1.2rem; /* Adjust font size */
+    margin-top: 5px;
+    display: block;
+  }
+  
+  /* User panel styling */
+  .user-panel {
+    padding: 20px 15px;
+  }
+  
+  .user-panel .image {
+    text-align: center;
+  }
+  
+  .user-panel .image i {
+    font-size: 3rem; /* Icon size */
+  }
+  
+  .user-panel .info {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Sidebar navigation menu */
+  .sidebar {
+    padding-bottom: 10px;
+  }
+  
+  .nav-pills .nav-link {
+    position: relative;
+    padding: 10px 20px;
+    color: #ffffff;
+  }
+  
+  .nav-pills .nav-link:hover,
+  .nav-pills .nav-link:focus {
+    background-color: #3c8dbc; /* Hover/focus background color */
+    color: #ffffff;
+  }
+  
+  .nav-pills .nav-link.active {
+    background-color: #3c8dbc; /* Active link background color */
+    color: #ffffff;
+  }
+  
+  /* Treeview menu */
+  .nav-treeview {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  
+  .nav-treeview .nav-link {
+    padding: 8px 10px;
+  }
+  
+  .nav-treeview .nav-link:hover {
+    background-color: #3c8dbc; /* Hover color */
+  }
+  
+  .nav-treeview .nav-link.active {
+    color: #ffffff;
+    background-color: #3c8dbc; /* Active color */
+  }
+  
+  .nav-treeview .nav-icon {
+    margin-right: 10px;
+  }
+  
+  /* Right angle icon */
+  .right {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Optional: Adjustments for small screens */
+  @media (max-width: 768px) {
+    .main-sidebar {
+      width: 220px; /* Reduce width for smaller screens */
+    }
+  }
+
+  /* Ensure dropdown is hidden by default */
+.nav-treeview {
+    display: none;
+  }
+  
+  /* Show dropdown when parent item is active */
+  .nav-item.has-treeview.menu-open > .nav-treeview {
+    display: block;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .content-wrapper {
+    min-height: calc(100vh - 56px); /* Adjust the height based on your navbar height */
+  }
+  
+  .main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 56px; /* Adjust the padding based on your navbar height */
+    width: 250px; /* Adjust the width as per your design */
+    z-index: 1;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 250px; /* Adjust the left position based on the sidebar width */
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .content-wrapper {
+    margin-left: 250px; /* Adjust the margin based on the sidebar width */
+    padding-top: 56px; /* Adjust the padding based on your navbar height */
+  }
+
+  /* Add this to your CSS */
+.navbar-hidden {
+  top: -100px; /* Adjust this value as needed to completely hide the navbar */
+  transition: top 0.3s;
+}
+
+.navbar-show {
+  top: 0;
+  transition: top 0.3s;
+}
+
+  
+  
+  

@@ -18,6 +18,7 @@ import { CreateUsersComponent } from './components/admin/workflow-users/create-u
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
+import { AppDashComponent } from './applicant-dashboard/app-dash/app-dash.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +52,7 @@ const routes: Routes = [
   { path : 'applicant' , canActivate: [AdminGuard], component : ApplicantDashboardComponent,
     children : [
       {path : 'app' , component : ApplicantComponent},
-     
+      {path : 'app-dash' , component : AppDashComponent}     
     ]
   } ,
   {path : 'app' ,

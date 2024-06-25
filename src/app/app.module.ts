@@ -46,6 +46,7 @@ import { CreateUsersComponent } from './components/admin/workflow-users/create-u
 import { WaterBillComponent } from './components/admin/water-bill/water-bill.component';
 import { PrintBillComponent } from './components/admin/print-bill/print-bill.component';
 import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
+import { AppDashComponent } from './applicant-dashboard/app-dash/app-dash.component';
 
 
 
@@ -85,7 +86,8 @@ import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-das
         CreateUsersComponent,
             WaterBillComponent,
             PrintBillComponent,
-            ApplicantDashboardComponent
+            ApplicantDashboardComponent,
+            AppDashComponent
    
        
    

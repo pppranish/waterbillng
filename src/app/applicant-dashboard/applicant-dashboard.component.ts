@@ -9,8 +9,16 @@ import { AuthService } from '../services/auth.service';
 })
 export class ApplicantDashboardComponent {
 
+  currentUser: any;
+  
+
   @ViewChild('applyDropdown') applyDropdown!: ElementRef;
-  constructor(private router: Router , private authService: AuthService) { }
+  constructor(private router: Router , private authService: AuthService) { 
+    
+  }
+  ngOnInit(): void {
+    this.currentUser = this.authService.currentUserValue;
+  }
 
   toggleDropdown() {
     this.applyDropdown.nativeElement.classList.toggle('menu-open');

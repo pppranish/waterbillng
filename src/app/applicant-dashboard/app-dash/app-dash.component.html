@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="m-0 font-weight-bold"> <i class="fas fa-2x fa-faucet text-success"></i> Water Connection</h5>
+            </div>
+            <div class="card-body">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fas fa-hand-holding-water"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Connection</span>
+                        <span class="info-box-number">{{ waterTotalConnection }}</span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-wallet"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Outstanding Bill Amount</span>
+                        <span class="info-box-number"><small><i class="fas fa-rupee-sign text-secondary"></i></small>{{ waterOutstandingBillAmount }}</span>
+                    </div>
+                </div>
+                <div class="float-right d-none d-sm-inline">
+                    <a  [routerLink]="['/app']" target="_parent" rel="noopener noreferrer">Apply for New Water Connection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="m-0 font-weight-bold"><i class="fas fa-2x fa-toilet text-warning"></i> Sewerage Connection</h5>
+            </div>
+            <div class="card-body">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fas fa-hand-holding-water"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Connection</span>
+                        <span class="info-box-number">{{ sewerageTotalConnection }}</span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fas fa-wallet"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Outstanding Bill Amount</span>
+                        <span class="info-box-number"><small><i class="fas fa-rupee-sign text-secondary"></i></small>{{ sewerageOutstandingBillAmount }}</span>
+                    </div>
+                </div>
+                <div class="float-right d-none d-sm-inline">
+                    <a routerLink="/consumer/sewerage/application" target="_parent" rel="noopener noreferrer">Apply for New Sewerage Connection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
